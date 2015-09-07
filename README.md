@@ -39,20 +39,18 @@ exercises**
 
     * [Topic 1: Design Patterns](#topic-1-design-patterns-3-days)
 
-    * [Topic 2: Maven](#topic-2-maven-1-day)
+    * [Topic 2: Maven](#topic-2-maven-2-day)
 
     * [Topic 3: Test Driven Development](#topic-3-test-driven-development-2-day)
 
     * [Topic 4: Services](#topic-4-services-3-days)
 
-    * [Topic 5: SQL - MySql](#topic-5-sql---mysql-1-day)
+    * [Topic 5: Spring Core & REST](#topic-5-spring-core--rest-3-day)
 
-    * [Topic 6: Spring Core & REST](#topic-6-spring-core--rest-3-day)
+    * [Topic 6: SQL - MySql](#topic-6-sql---mysql-2-day)
 
-    * [Topic 7: Hibernate](#topic-7-orm-1-day)
+    * [Topic 7: Hibernate](#topic-7-orm-2-day)
   
-    * [Topic 8: Spring Data & MongoDB](#topic-8-spring-data--mongodb-2-day)
-
 10. [Your First Project Starts Now!](#your-first-project-starts-now)
 
 ###Objective
@@ -263,7 +261,7 @@ Commit your practice code.
 → [index](#index)
 
 
-####Topic 2: Maven (1 day)####
+####Topic 2: Maven (2 day)####
 
 #####Reading:#####
 1. [What is Maven?](http://maven.apache.org/what-is-maven.html)
@@ -387,8 +385,35 @@ Commit your practice code.
 
 → [index](#index)
 
+####Topic 5: Spring Core & REST (3 day)####
 
-####Topic 5: SQL - MySql (1 day)####
+#####Reading:#####
+1. [Quick guide](http://www.tutorialspoint.com/spring/spring_quick_guide.htm)
+
+2. [Spring boot](http://docs.spring.io/spring-boot/docs/1.2.1.BUILD-SNAPSHOT/reference/htmlsingle/) up to point III (included)
+
+3. [REST I](https://www.youtube.com/watch?v=YCcAE2SCQ6k)
+
+4. [REST II](http://martinfowler.com/articles/richardsonMaturityModel.html)
+
+5. [Spring boot - rest services guide](http://spring.io/guides/tutorials/bookmarks/)
+  
+#####Practice:#####
+
+1. Expose the shopping cart created in the topic 4.
+2. Create a REST API to create, update and remove meetings. Note that a meeting has attendees, room and a time slot. Attendees and rooms exists in the system and must be retrieved by an endpoint to create the meeting. You must provide the following features: create meetings, query existing ones, cancel and update meetings.
+
+#####Key Points:#####
+
+2
+
+#####Commit:#####
+
+Commit your practice code.
+
+→ [index](#index)
+
+####Topic 6: SQL - MySql (2 day)####
 
 #####Reading:#####
 1. [MySql basis](http://www.vogella.com/tutorials/MySQL/article.html)
@@ -449,36 +474,7 @@ Commit your practice code.
 → [index](#index)
 
 
-####Topic 6: Spring Core & REST (3 day)####
-
-#####Reading:#####
-1. [Quick guide](http://www.tutorialspoint.com/spring/spring_quick_guide.htm)
-
-2. [Spring boot](http://docs.spring.io/spring-boot/docs/1.2.1.BUILD-SNAPSHOT/reference/htmlsingle/) up to point III (included)
-
-3. [REST I](https://www.youtube.com/watch?v=YCcAE2SCQ6k)
-
-4. [REST II](http://martinfowler.com/articles/richardsonMaturityModel.html)
-
-5. [Spring boot - rest services guide](http://spring.io/guides/tutorials/bookmarks/)
-  
-#####Practice:#####
-
-1. Expose the shopping cart created in the topic 4.
-2. Create a REST API to create, update and remove meetings. Note that a meeting has attendees, room and a time slot. Attendees and rooms exists in the system and must be retrieved by an endpoint to create the meeting. You must provide the following features: create meetings, query existing ones, cancel and update meetings.
-
-#####Key Points:#####
-
-2
-
-#####Commit:#####
-
-Commit your practice code.
-
-→ [index](#index)
-
-
-####Topic 7: ORM (1 day)####
+####Topic 7: ORM (2 day)####
 
 #####Reading:#####
 1. [Spring ORM integration](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/orm.html)
@@ -504,40 +500,6 @@ Commit your practice code.
 Commit your practice code.
 
 → [index](#index)
-
-####Topic 8: Spring Data & MongoDB (2 day)####
-
-#####Reading:#####
-1. [SQL to MongoDB Mapping Chart](http://docs.mongodb.org/manual/reference/sql-comparison)
-
-2. [Installing MongoDB](http://docs.mongodb.org/manual/installation)
-
-3. [Getting Started With MongoDB](http://docs.mongodb.org/manual/tutorial/getting-started/)
-
-4. [Java And MongoDB](http://docs.mongodb.org/ecosystem/tutorial/getting-started-with-java-driver)
-
-5. [Spring and Mongo](http://www.mkyong.com/mongodb/spring-data-mongodb-hello-world-example/)
-
-6. [Spring boot and MongoDB](http://docs.mongodb.org/manual/tutorial/getting-started/)
-
-#####Practice:#####
-
-1. Using the same SQL-MySql data model, map it to the corresponding database, collections and documents.
-2. Fetch all students whose notes in a specific course were greater than 4.
-3. Fetch all courses ordered by name for a given teacher.
-4. Add a new field to “courses” collection to identify which courses are finished.
-5. Create a new project using Spring Data for MongoDB framework and translate items 2, 3 and 4.
-
-#####Key Points:#####
-
-1,2,3,5
-
-#####Commit:#####
-
-Commit your practice code.
-
-→ [index](#index)
-
 
 ###Your First Project Starts Now!
 
