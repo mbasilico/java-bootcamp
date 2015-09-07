@@ -35,7 +35,7 @@ exercises**
 
 9. [Learning Days](#learning-days)
 
-    * [Topic 0: Introduction to Object Oriented Programming Concepts (OOP)](#topic-0-introduction-to-object-oriented-programming-concepts-1-day)
+    * [Topic 0: Introduction to Object Oriented Programming Concepts (OOP)](#topic-0-introduction-to-object-oriented-programming-concepts-2-day)
 
     * [Topic 1: Design Patterns](#topic-1-design-patterns-3-days)
 
@@ -163,7 +163,7 @@ You will commit all your code on a daily basis, when you finish your practice.
   - [JVM - II](http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
 
 
-####Topic 0: Introduction to Object Oriented Programming Concepts (1 day)####
+####Topic 0: Introduction to Object Oriented Programming Concepts (2 day)####
 
 #####Reading:#####
 
