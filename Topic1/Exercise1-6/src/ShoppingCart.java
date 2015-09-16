@@ -10,7 +10,7 @@ public class ShoppingCart {
 		
 	}
 	
-	public void payOrder(String paytype) throws Exception{ //Exceptions can be handle with try and catch blocks.
+	public void payOrder(String paytype) throws Exception{ // Exceptions can be handle with try and catch blocks.
 		
 		int orderId = order.getOrder(); // get the order Id that identify a unique order
 		double total = order.getTotal(orderId); // get the total price of the order
