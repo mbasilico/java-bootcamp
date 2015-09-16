@@ -20,7 +20,7 @@ public class ShoppingCart {
 		Class cl = Class.forName(className);
 		Constructor tc = cl.getConstructor(int.class, double.class);
 		Object t = tc.newInstance(1, 350); // create a new instance of (CreditCard/PayPal/Cash) discount class depending on the content of paytype variable.
-										   // for demostration purposes, we assume that OrderId=1 and Total=350	
+						   // for demostration purposes, we assume that OrderId=1 and Total=350	
 			
 	}
 	
