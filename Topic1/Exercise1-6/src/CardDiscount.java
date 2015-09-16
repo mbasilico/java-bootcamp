@@ -14,7 +14,7 @@ public class CardDiscount extends Discount{
 		total = total -(total*10/100);
 		return total;
 		/*
-		 * update the new total in the database
+		 * update the new total
 		 */
 		
 	}

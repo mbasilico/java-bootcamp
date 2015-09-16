@@ -13,7 +13,7 @@ public class ShoppingCart {
 	public void payOrder(String paytype) throws Exception{ //Exceptions can be handle with try and catch blocks.
 		
 		int orderId = order.getOrder(); // get the order Id that identify a unique order
-		double total = order.getTotal(); // get the total price of the order
+		double total = order.getTotal(orderId); // get the total price of the order
 		
 		String className = paytype; // represents the type of payment selected
 		
@@ -26,11 +26,11 @@ public class ShoppingCart {
 	
 	
 	public void getProducts(){ 
-		 // show all products (connection to database)
+		 // show all products
 		}
 	
 	public void getOffers(){
-		// show all offers (connection to database)
+		// show all offers
 	}
 	
 

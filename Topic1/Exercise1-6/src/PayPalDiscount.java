@@ -9,9 +9,9 @@ public class PayPalDiscount extends Discount{
 	}
 
 	public double applyDiscount(){
-		/* PayPal discount implementation (connection to database)
+		/* PayPal discount implementation
 		 * 
-		 * update the new total in the database.
+		 * update the new total
 		 *
 		 */
 		return total-30; // for demostration purposes, we assume the PayPal discount is 30

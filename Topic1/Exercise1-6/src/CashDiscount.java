@@ -6,9 +6,9 @@ public class CashDiscount extends Discount {
 	}
 	
 	public double applyDiscount(){
-		/* Cash discount implementation (connection to database)
+		/* Cash discount implementation:
 		 * 
-		 * update the new total in database
+		 * update the new total
 		 * 
 		 */
 		return total;

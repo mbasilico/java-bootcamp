@@ -10,18 +10,19 @@ public class Order{
 	}
 	
 	public void placeNewOrder(){
-		//update database with new order
+		//add a new order
 	}
 	
 	public int getOrder(){ 
-		//connect to database and get the order ID
+		//get the order ID
 		return orderId;
 	}
 	
-	public double getTotal(){
-		//connect to database and get the total of the order
+	public double getTotal(int orderid){
+		//get the total of the order
 		return(total);
 	}
+	
 	
 
 }

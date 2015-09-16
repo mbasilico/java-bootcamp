@@ -15,7 +15,9 @@ public abstract class Discount {
 		
 		System.out.println("Transaction counter = " + counter);
 		System.out.println("New total with discount = "+ total);
-		}
+		
+		//update mail list
+	}
 	
 	
 	public abstract double applyDiscount();
