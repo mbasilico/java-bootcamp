@@ -14,11 +14,12 @@ public class ItemsManager extends Observable {
 		items = new ArrayList<ItemInterface>();
 	}
 
-	public void addItem(ItemInterface item) {
+	public void addItem(Item item) {
 		items.add(item);
+		notifyAddedItem(item);
 	}
 
-	public void RemoveItem(ItemInterface item) {
+	public void RemoveItem(Item item) {
 		items.remove(item);
 	}
 

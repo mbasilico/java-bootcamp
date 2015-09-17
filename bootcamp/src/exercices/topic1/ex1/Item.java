@@ -7,7 +7,8 @@ public class Item implements ItemInterface {
 	private String description;
 	private float price;
 
-	public Item(String name, String description, float price) {
+	public Item(int id, String name, String description, float price) {
+		this.id = id;
 		this.setName(name);
 		this.setDescription(description);
 		this.setPrice(price);

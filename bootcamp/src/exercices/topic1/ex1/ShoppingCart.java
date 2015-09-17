@@ -6,9 +6,18 @@ import java.util.Observable;
 public class ShoppingCart extends Observable {
 
 	private ArrayList<Item> items;
+	private Transaction t;
 
 	public ShoppingCart() {
 		items = new ArrayList<Item>();
+	}
+
+	public ArrayList<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(ArrayList<Item> items) {
+		this.items = items;
 	}
 
 	public void deleteItem(Item i) {
@@ -18,12 +27,10 @@ public class ShoppingCart extends Observable {
 	public void addItem(Item i) {
 		items.add(i);
 	}
-
-	public Transaction buyItems() {
-		String amount = payment.makePayment(items);
-		Transaction t = new Transaction(payment, amount);
+	
+	public void NewTransaction(float amount, ArrayList<Item> items){
+		this.t = new Transaction(amount,items);
 		TransactionMade(t);
-		return t;
 	}
 
 	private void TransactionMade(Transaction t) {
@@ -31,4 +38,5 @@ public class ShoppingCart extends Observable {
 		notifyObservers("new transaction added with id " + t.getIDTransaction());
 
 	}
+	
 }
