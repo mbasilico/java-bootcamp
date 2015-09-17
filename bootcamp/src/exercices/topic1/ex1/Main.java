@@ -21,6 +21,9 @@ public class Main {
 		float amount3 = new CreditCardPayment("name", 432542543).makePayment(cart.getItems());//10% 117
 		Transaction t3 = new Transaction(amount3, cart.getItems());
 		System.out.println(t3.showTransaction());
+		Offer o = new Offer("Offer1", 100, cart.getItems());
+		o.toString();
+	
 	}
 
 }
