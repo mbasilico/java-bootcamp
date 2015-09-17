@@ -1,23 +1,22 @@
 package exercices.topic1.ex1;
 
+import java.util.List;
+
 public class CashPayment implements PaymentStrategy {
 
-	private DiscountStrategy discount;
+	private float amount;
 
-	public CashPayment() {
-		this.discount = new NinetyMostExpensiveDiscount();
+	public float getAmount() {
+		return amount;
 	}
 
-	public DiscountStrategy getDiscount() {
-		return discount;
+	public void setAmount(float amount) {
+		this.amount = amount;
 	}
 
-	public void setDiscount(DiscountStrategy discount) {
-		this.discount = discount;
-	}
-
-	public String makePayment(float amount) {
-			return "Paying with cash";
+	public float makePayment(List<Item> items) {
+		setAmount(new NinetyMostExpensiveDiscount().applyDiscount(items));
+		return getAmount();
 	}
 
 }

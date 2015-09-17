@@ -1,15 +1,16 @@
 package exercices.topic1.ex1;
 
+import java.util.List;
+
 public class CreditCardPayment implements PaymentStrategy {
 
 	private String name;
 	private int creditCardNumber;
-	private DiscountStrategy discount;
+	private float amount;
 
 	public CreditCardPayment(String name, int creditCardNumber) {
 		this.name = name;
 		this.creditCardNumber = creditCardNumber;
-		this.discount = new TenPercentDiscount();
 	}
 
 	public String getName() {
@@ -28,16 +29,17 @@ public class CreditCardPayment implements PaymentStrategy {
 		this.creditCardNumber = creditCardNumber;
 	}
 
-	public DiscountStrategy getDiscount() {
-		return discount;
+	public float getAmount() {
+		return amount;
 	}
 
-	public void setDiscount(DiscountStrategy discount) {
-		this.discount = discount;
+	public void setAmount(float amount) {
+		this.amount = amount;
 	}
 
-	public String makePayment(float amount) {
-			return "Paying with Credit Card";
+	public float makePayment(List<Item> items) {
+		setAmount(new TenPercentDiscount().applyDiscount(items));
+		return getAmount();
 	}
 
 }

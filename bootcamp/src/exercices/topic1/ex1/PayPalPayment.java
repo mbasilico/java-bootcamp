@@ -1,15 +1,16 @@
 package exercices.topic1.ex1;
 
+import java.util.List;
+
 public class PayPalPayment implements PaymentStrategy {
 
 	private String email;
 	private String password;
-	private DiscountStrategy discount;
+	private float amount;
 
 	public PayPalPayment(String email, String password) {
 		this.email = email;
 		this.password = password;
-		this.discount = new CheapestFreeDiscount();
 	}
 
 	public String getEmail() {
@@ -24,19 +25,21 @@ public class PayPalPayment implements PaymentStrategy {
 		return password;
 	}
 
+	public float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public DiscountStrategy getDiscount() {
-		return discount;
+	public float makePayment(List<Item> items) {
+		setAmount(new CheapestFreeDiscount().applyDiscount(items));
+		return getAmount();
 	}
 
-	public void setDiscount(DiscountStrategy discount) {
-		this.discount = discount;
-	}
-
-	public String makePayment(float amount) {
-			return "Paying with PayPal";
-	}
 }

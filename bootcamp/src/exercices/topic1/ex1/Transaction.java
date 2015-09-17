@@ -1,15 +1,17 @@
 package exercices.topic1.ex1;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Transaction {
 	private PaymentStrategy payment;
 	private float amount;
-	private static int uniqueTransactionID = 0;
-	private int TransactionID;
+	private static final AtomicInteger count = new AtomicInteger(0);
+	private final int transactionID;
 
 	public Transaction(PaymentStrategy payment, float amount) {
 		this.payment = payment;
 		this.amount = amount;
-		this.TransactionID = getNextIDTransaction();
+		this.transactionID = count.incrementAndGet();
 	}
 
 	public PaymentStrategy getPayment() {
@@ -28,12 +30,8 @@ public class Transaction {
 		this.amount = amount;
 	}
 
-	private int getNextIDTransaction() {
-		return uniqueTransactionID++;
-	}
-
 	public int getIDTransaction() {
-		return TransactionID;
+		return transactionID;
 	}
 
 }

@@ -1,12 +1,15 @@
 package exercices.topic1.ex1;
 
-public class TenPercentDiscount implements DiscountStrategy {
+import java.util.List;
 
-	@Override
-	public float applyDiscount() {
-		
-		//"10 % discount";
-		return 0;
+public class TenPercentDiscount {
+
+	public float applyDiscount(List<Item> items) {
+		float amount = 0;
+		for (Item i : items) {
+			amount += i.getPrice();
+		}
+		amount *= 0.9;
+		return amount;
 	}
-
 }

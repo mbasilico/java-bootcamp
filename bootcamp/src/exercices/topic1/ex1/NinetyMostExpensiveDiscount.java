@@ -1,12 +1,20 @@
 package exercices.topic1.ex1;
 
-public class NinetyMostExpensiveDiscount implements DiscountStrategy {
+import java.util.List;
 
-	@Override
-	public float applyDiscount() {
+public class NinetyMostExpensiveDiscount {
 
-		// "Most expensive item has 90% discount";
-		return 0;
+	public float applyDiscount(List<Item> items) {
+		float max = 0;
+		float amount = 0;
+		for (Item i : items) {
+			amount += i.getPrice();
+			if (i.getPrice() > max)
+				max = i.getPrice();
+		}
+		amount -= max;
+		max *= 0.1;
+		amount += max;
+		return amount;
 	}
-
 }

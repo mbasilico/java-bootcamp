@@ -2,6 +2,7 @@ package exercices.topic1.ex1;
 
 public class Item implements ItemInterface {
 
+	private int id;
 	private String name;
 	private String description;
 	private float price;
@@ -10,6 +11,14 @@ public class Item implements ItemInterface {
 		this.setName(name);
 		this.setDescription(description);
 		this.setPrice(price);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {

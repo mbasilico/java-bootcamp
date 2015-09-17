@@ -7,35 +7,35 @@ import java.util.Observable;
 //price, new offers and items change
 
 public class ItemsManager extends Observable {
-	
+
 	private ArrayList<ItemInterface> items;
 
 	public ItemsManager(ArrayList<ItemInterface> items) {
 		items = new ArrayList<ItemInterface>();
 	}
-	
-	public void addItem (ItemInterface item){
+
+	public void addItem(ItemInterface item) {
 		items.add(item);
 	}
-	
-	public void RemoveItem (ItemInterface item){
+
+	public void RemoveItem(ItemInterface item) {
 		items.remove(item);
 	}
-	
-	public void notifyAddedItem(Item i){
+
+	public void notifyAddedItem(Item i) {
 		this.setChanged();
-		this.notifyObservers("Item "+ i.getName() + "was added");
+		this.notifyObservers("Item " + i.getName() + "was added");
 	}
-	
-	public void changePrice(Item i, float newPrice){
+
+	public void changePrice(Item i, float newPrice) {
 		i.setPrice(newPrice);
 		notifyItemPriceChange(i);
-		}
+	}
 
 	private void notifyItemPriceChange(Item i) {
 		this.setChanged();
 		this.notifyObservers(i.getName() + "Price changed");
-		
+
 	}
-	
+
 }

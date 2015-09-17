@@ -1,8 +1,8 @@
 package exercices.topic1.ex1;
 
+import java.util.List;
+
 public interface PaymentStrategy {
 
-	public String makePayment(float amount);
-	public DiscountStrategy getDiscount();
-
+	public float makePayment(List<Item> items);
 }
