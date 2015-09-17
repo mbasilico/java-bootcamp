@@ -17,7 +17,7 @@ public class ShoppingCart {
 		
 	}
 	
-	public void payOrder(String paytype) throws Exception{ //Exceptions can be handle with try and catch blocks.
+	public void payOrder(String paytype) throws Exception{ // Exceptions can be handle with try and catch blocks.
 		
 		double total = t.getTotal(); // get the total price of the order
 		
