@@ -1,19 +1,24 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Administrator extends User{
 	
-	//Methods available for administrators
+	private int adminId;
+	private String Nombre;
+	private String Apellido;
 	
-	public void newOffer(){
-		//add a new offer, update mail list
+	
+	public void setPrice(int productId){
+		// update row of Product table with new price
 	}
 	
-	public void newProduct(){
-		//add a new product, update mail list
+	public void deleteProduct(int productId){
+		// delete a row of Product table
 	}
 	
-	public void setPrice(){
-		Product product = new Product();
-		product.setNewPrice(product.getProductId());
+	public void addProduct(int ProductId, String descp, double price){
+		// insert new row into Product Table
 	}
+	
 	
 }

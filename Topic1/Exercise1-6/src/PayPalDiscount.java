@@ -4,18 +4,20 @@ public class PayPalDiscount extends Discount{
 	private String paypalEmail;
 	private String paypalPassword;
 	
-	public PayPalDiscount(int orderId, double total) {
-		super(orderId, total);
+	public PayPalDiscount(double total) {
+		super(total);
 	}
 
 	public double applyDiscount(){
-		/* PayPal discount implementation
-		 * 
-		 * update the new total
-		 *
-		 */
-		return total-30; // for demostration purposes, we assume the PayPal discount is 30
+		double discount=0;
 		
+		/* connect to Order table and get the last orderId inserted.
+		 * make a query to get the cheapest price of product associated with that orderId .
+		 * Save the value into the discount variable
+		 */
+
+		total = total-discount;
+		return total;
 	}
 
 }
