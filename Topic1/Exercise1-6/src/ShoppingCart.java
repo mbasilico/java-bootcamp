@@ -24,8 +24,8 @@ public class ShoppingCart {
 		String className = paytype; // represents the type of payment selected
 		
 		Class cl = Class.forName(className);
-		Constructor tc = cl.getConstructor(double.class);
-		Object t = tc.newInstance(total); // create a new instance of (CreditCard/PayPal/Cash) discount class depending on the content of paytype variable.
+		Constructor tc = cl.getConstructor(double.class, List.class);
+		Object t = tc.newInstance(total, items); // create a new instance of (CreditCard/PayPal/Cash) discount class depending on the content of paytype variable.
 		
 	}
 	
