@@ -6,13 +6,15 @@ public class Transaction {
 	private double total;
 	
 	public void selectProduct(List<Product> items){
-		// calculate total from array, save into the variable total
-		// insert array into Order table
-		System.out.println("Items in cart: ");  // show array list
-		for (Product product : items) {
-	         System.out.println("Product: [ID : " + product.getProductId() + ", Name : " + product.getDescp()+ ", Price : " + product.getPrice() +" ]");}
 		
-	        }
+		// insert array into Order database table
+		
+		System.out.println("Items in cart: ");
+		for (Product product : items) {
+	             System.out.println("Product: [ID : " + product.getProductId() + ", Name : " + product.getDescp()+ ", Price : " + product.getPrice() +" ]"); // show list of items in cart
+	             total = total+product.getPrice(); // calculate total from array, save into the variable total	
+		}
+	        System.out.println("Total to pay : "+ total);
 	}
 	
 	public double getTotal(){
