@@ -19,7 +19,7 @@ public class Main {
 	    	items.add(product2); //save selection into array
 	    
 	    	cart.addToCart(items);
-		cart.payOrder(paytype);
+		cart.payOrder(paytype, items);
 	    
 		
 	}
