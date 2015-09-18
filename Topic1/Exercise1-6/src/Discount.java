@@ -1,11 +1,14 @@
+import java.util.List;
 
 public abstract class Discount {
 	
 	protected double total;
+	protected List<Product> items;
 	
-	public Discount (double total){
+	public Discount (double total, List<Product> items){
 		
 		this.total = total;
+		this.items = items;
 		
 		total = applyDiscount(); //call the method applyDiscount() of the class instance created in ShoppingCart
 		

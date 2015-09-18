@@ -1,23 +1,29 @@
+import java.util.List;
 
 public class PayPalDiscount extends Discount{
 	
 	private String paypalEmail;
 	private String paypalPassword;
 	
-	public PayPalDiscount(double total) {
-		super(total);
+	public PayPalDiscount(double total,List<Product> items) {
+		super(total,items);
+		
 	}
 
 	public double applyDiscount(){
-		double discount=0;
 		
-		/* connect to Order table and get the last orderId inserted.
-		 * make a query to get the cheapest price of product associated with that orderId .
-		 * Save the value into the discount variable
-		 */
-
+		// Implementation without using sql queries:
+		double discount= Double.MAX_VALUE;
+		
+		for (Product product : items) {
+			if (product.getPrice()<discount) 
+				discount = product.getPrice();
+		}
+		
 		total = total-discount;
 		return total;
+	
+		
 	}
 
 }
