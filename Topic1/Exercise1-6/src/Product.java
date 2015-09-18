@@ -12,8 +12,15 @@ public class Product {
 	}
 	
 	public int getProductId(){
-	
 		return productId;
+	}
+	
+	public String getDescp(){
+		return descp;
+	}
+	
+	public double getPrice(){
+		return price;
 	}
 	
 	
