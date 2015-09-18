@@ -17,15 +17,15 @@ public class ShoppingCart {
 		
 	}
 	
-	public void payOrder(String paytype) throws Exception{ // Exceptions can be handle with try and catch blocks.
+	public void payOrder(String paytype, List<Product> items) throws Exception{ // Exceptions can be handle with try and catch blocks.
 		
 		double total = t.getTotal(); // get the total price of the order
 		
 		String className = paytype; // represents the type of payment selected
 		
 		Class cl = Class.forName(className);
-		Constructor tc = cl.getConstructor(double.class);
-		Object t = tc.newInstance(total); // create a new instance of (CreditCard/PayPal/Cash) discount class depending on the content of paytype variable.
+		Constructor tc = cl.getConstructor(double.class, List.class);
+		Object t = tc.newInstance(total, items); // create a new instance of (CreditCard/PayPal/Cash) discount class depending on the content of paytype variable.
 		
 	}
 	
