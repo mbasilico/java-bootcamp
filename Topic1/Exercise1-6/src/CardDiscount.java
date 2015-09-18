@@ -9,6 +9,9 @@ public class CardDiscount extends Discount{
 		super(total,items); //call the constructor of the class Discount
 	}
 	
+	public boolean validateCard(int cardNumber){
+		return true;
+	
 	public double applyDiscount(){
 		total = total -(total*10/100);
 		return total;
