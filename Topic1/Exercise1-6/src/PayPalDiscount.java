@@ -9,6 +9,9 @@ public class PayPalDiscount extends Discount{
 		super(total,items);
 		
 	}
+	
+	public boolean validatePayPalUser(String paypalEmail){
+		return true;}
 
 	public double applyDiscount(){
 		
