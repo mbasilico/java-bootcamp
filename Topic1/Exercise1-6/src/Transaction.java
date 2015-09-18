@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Transaction {
 	
+	private int transacId;
 	private double total;
 	private int clientId;
 	private Date day;
