@@ -31,8 +31,8 @@ public class Transaction {
 		lock.unlock();
 		 
 		
-			 /* The Order table contains all products associated with each order
-	          * [orderId	ProductId]
+		 /* The Order table contains all products associated with each order
+	          * [orderId		  ProductId]
 	          * 	1			2
 	          * 	1			3
 	          * 	2			5
@@ -55,9 +55,9 @@ public class Transaction {
 		
 		/* The Transact table contains all the transactions made. Each transaction is associated with one orderId
 		 * [transacId	orderId		date		clientId	Total(with discount)
-		 * 		1			1		dd/mm/yyyy		4			456
-		 * 		2			4		dd/mm/yyyy		6			100
-		 * 		3			2		dd/mm/yyyy		1			45
+		 * 	1	1		dd/mm/yyyy		4			456
+		 * 	2	4		dd/mm/yyyy		6			100
+		 * 	3	2		dd/mm/yyyy		1			45
 		 */
 	
 		ItemManager itemman = new ItemManager("New Transaction",clientId,day,orderId,total);
