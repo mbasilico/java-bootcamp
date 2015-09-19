@@ -2,7 +2,7 @@ import java.util.List;
 
 public class CashDiscount extends Discount {
 	
-	public CashDiscount(double total,List<Product> items) {
+	public CashDiscount(double total,List<Product> items) throws InterruptedException {
 		super(total,items);
 	}
 	
@@ -11,7 +11,7 @@ public class CashDiscount extends Discount {
 	public double applyDiscount(){
 		double discount=0;
 		
-		// Implementation without using sql queries:
+		// Implementation of discount:
 		for (Product product : items) {
 			if (product.getPrice()>discount) 
 				discount = product.getPrice();
