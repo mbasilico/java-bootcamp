@@ -9,9 +9,14 @@ public class CardDiscount extends Discount{
 		super(total,items); //call the constructor of the class Discount
 	}
 	
+<<<<<<< HEAD
 	public boolean validateCard(long number){
 		return true;
 	}
+=======
+	public boolean validateCard(int cardNumber){
+		return true;
+>>>>>>> 0857e727d5fb13721511bb33a7447f32d77210de
 	
 	public double applyDiscount(){
 		// Implementation of discount:

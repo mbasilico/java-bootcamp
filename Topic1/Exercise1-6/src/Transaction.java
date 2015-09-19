@@ -4,7 +4,10 @@ import java.util.Date;
 
 public class Transaction {
 	
+<<<<<<< HEAD
 	private Lock lock=new Lock();
+=======
+>>>>>>> 0857e727d5fb13721511bb33a7447f32d77210de
 	private int transacId;
 	private double total;
 	private int clientId;
