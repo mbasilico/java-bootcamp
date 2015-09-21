@@ -1,5 +1,7 @@
 package exercise1;
 
+import java.util.regex.Pattern;
+
 public class Numbers {
 
 	private static final String[] ZeroToNineteen = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
@@ -11,32 +13,44 @@ public class Numbers {
 	}
 
 	public static String toText(double number) {
-
 		int integer = (int) number;
-		// int numberOfDigits = String.valueOf(integer).length();
+		return integerPart(integer) + decimals(number) + " dollars";
+		// dollars it could change to a field that ask for the type of currency
+	}
 
+	public static String decimals(double decimals) {
+		String string = String.format("%.2f", decimals);
+		String[] parts = string.split(Pattern.quote(",")); // split(Pattern.quote("."))
+		String textDecimals = parts[1]; // should have decimals only
+		return " and " + textDecimals + "/100";
+	}
+
+	public static String integerPart(int integer) { //supports to 999999
 		if (integer < 0) {
-			return "minus " + toText(-integer);
+			return "minus " + integerPart(-integer);
 		}
-		if (number < 20) {
+		if (integer < 20) {
 			return lessThanTwenty(integer);
 		}
-		if (number < 100) {
+		if (integer < 100) {
 			return lessThan100(integer);
 		}
-		if (number < 1000) {
+		if (integer < 1000) {
 			return lessThanThousand(integer);
 		}
-		if (number < 10000) {
+		if (integer < 10000) {
 			return lessThan10Thousand(integer);
 		}
-		if (number < 100000) {
+		if (integer < 100000) {
 			return lessThan100Thousand(integer);
 		}
-		if (number < 1000000) {
+		if (integer < 1000000) {
 			return lessThanMillion(integer);
+		}
+		if (integer == 1000000) {
+			return "number not supporter";
 		} else {
-			return "not supported";
+			return "number not supporter";
 		}
 	}
 
@@ -44,24 +58,23 @@ public class Numbers {
 		if (number % 100 == 0) {
 			return lessThanThousand(number / 1000) + " " + BigOnes[1];
 		} else {
-			return ZeroToNineteen[number / 100000] + " " + BigOnes[0] + " " + toText(number - 100000 * (number / 100000));
+			return ZeroToNineteen[number / 100000] + " " + BigOnes[0] + " " + integerPart(number - 100000 * (number / 100000));
 		}
 	}
 
 	private static String lessThan100Thousand(int number) {
 		if (number % 100 == 0) {
-			return toText(number / 1000) + " " + BigOnes[1];
+			return integerPart(number / 1000) + " " + BigOnes[1];
 		} else {
 			return lessThan100(number / 1000) + " " + BigOnes[1] + " " + lessThanThousand(number - 1000 * (number / 1000));
 		}
-
 	}
 
 	private static String lessThan10Thousand(int number) {
 		if (number % 100 == 0) {
 			return lessThanTwenty(number / 1000) + " " + BigOnes[1];
 		} else {
-			return lessThanTwenty(number / 1000) + " " + BigOnes[1] + " " + lessThanThousand(number / 10);
+			return lessThanTwenty(number / 1000) + " " + BigOnes[1] + " " + lessThanThousand(number - 1000 * (number / 1000));
 		}
 	}
 
@@ -69,7 +82,7 @@ public class Numbers {
 		if (number % 100 == 0) {
 			return ZeroToNineteen[number / 100] + " " + BigOnes[0];
 		} else {
-			return toText(number / 100) + " " + BigOnes[0] + " " + lessThan100(number - 100 * (number / 100));
+			return integerPart(number / 100) + " " + BigOnes[0] + " " + lessThan100(number - 100 * (number / 100));
 		}
 	}
 
@@ -77,17 +90,11 @@ public class Numbers {
 		if (number % 10 == 0) {
 			return TwentyToNinety[number / 10];
 		} else {
-			return TwentyToNinety[number / 10] + " " + toText(number % 10);
+			return TwentyToNinety[number / 10] + "-" + integerPart(number % 10);
 		}
 	}
 
 	public static String lessThanTwenty(int number) {
 		return ZeroToNineteen[number];
 	}
-
-	public static int decimals(double toInteger) {
-
-		return (int) toInteger;
-	}
-
 }
