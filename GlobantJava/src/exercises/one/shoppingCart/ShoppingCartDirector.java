@@ -9,7 +9,7 @@ public class ShoppingCartDirector {
 	}
 
 	public ShoppingCart getCart() {
-		return shoppingCartBuilder.getCart();
+		return shoppingCartBuilder.getShoppingCart();
 	}
 
 	public void constructCart() {
@@ -17,5 +17,4 @@ public class ShoppingCartDirector {
 		shoppingCartBuilder.buildCart();
 		shoppingCartBuilder.buildCartID();
 	}
-
 }

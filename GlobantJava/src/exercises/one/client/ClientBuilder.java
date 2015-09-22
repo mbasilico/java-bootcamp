@@ -1,15 +1,15 @@
 package exercises.one.client;
 
-public abstract class ClientBuilder extends Client{
+public abstract class ClientBuilder extends Client {
 
 	protected Client client;
-	
-	public Client getClient() {
-		return client;
-	}
 
 	public void createNewClient() {
 		client = new Client();
+	}
+
+	public Client getClient() {
+		return client;
 	}
 
 	public abstract void buildName();

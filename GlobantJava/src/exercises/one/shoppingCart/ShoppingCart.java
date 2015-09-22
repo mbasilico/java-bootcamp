@@ -55,10 +55,10 @@ public class ShoppingCart {
 
 	public Product expensiveProduct() {
 		Product expensive;
-		if (!cart.isEmpty()){
+		if (!cart.isEmpty()) {
 			expensive = cart.get(0);
-			for (Product product : cart){
-				if (product.getPrice() > expensive.getPrice()){
+			for (Product product : cart) {
+				if (product.getPrice() > expensive.getPrice()) {
 					expensive = product;
 				}
 			}
@@ -66,6 +66,18 @@ public class ShoppingCart {
 			expensive = null;
 		}
 		return expensive;
+	}
+
+	public String showProducts() {
+		String show = "Content of catalogue: \n";
+		if (cart.isEmpty()) {
+			show += "there are no elements.";
+		} else {
+			for (Product product : cart) {
+				show += "Item Name: " + product.getName() + " .....$ price: " + product.getPrice() + "\n";
+			}
+		}
+		return show;
 	}
 
 }

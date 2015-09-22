@@ -12,7 +12,7 @@ public class CatalogueDirector {
 	}
 
 	public Catalogue getCatalogue() {
-		return catalogueBuilder.getCatalogue();
+		return catalogueBuilder.getCatalogueBuilder();
 	}
 
 	public void constructCatalogue() {

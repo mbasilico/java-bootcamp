@@ -9,7 +9,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [Name=" + name + ", ClientID=" + clientID + ", Shipping Adress=" + shippingAdress + "]";
+		return "Client [Name= " + name + ", ClientID= " + clientID + ", Shipping Adress= " + shippingAdress + "]";
 	}
 
 	public String getName() {

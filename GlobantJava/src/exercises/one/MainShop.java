@@ -1,9 +1,5 @@
 package exercises.one;
 
-import java.io.ObjectInputStream.GetField;
-import java.util.ArrayList;
-
-import exercises.one.payment.Transaction;
 import exercises.one.product.Product;
 import exercises.one.client.Client;
 import exercises.one.client.ClientBuilder;
@@ -21,12 +17,12 @@ public class MainShop {
 
 	public static void main(String[] args) {
 
-		ClientDirector clientDirector = new ClientDirector();
+		/*ClientDirector clientDirector = new ClientDirector();
 		ClientBuilder cb = new ConsoleClientBuilder();
 		clientDirector.setClientBuilder(cb);
 		clientDirector.constructClient();
 		Client client = clientDirector.getClient();
-		System.out.println(client);
+		System.out.println(client);		*/	
 
 		ProductDirector productDirector = new ProductDirector();
 		ProductBuilder prod1 = new ConsoleProductBuilder();
@@ -35,17 +31,14 @@ public class MainShop {
 		Product product = productDirector.getProduct();
 		System.out.println(product);
 
-		/*
-		 * ShoppingCartDirector cartDirector = new ShoppingCartDirector();
-		 * ShoppingCartBuilder cart1 = new ConsoleCartBuilder();
-		 * cartDirector.setShoppingCartBuilder(cart1);
-		 * cartDirector.constructCart(); ShoppingCart cart =
-		 * cartDirector.getCart(); System.out.println(cart);
-		 */
-
-	
+		ShoppingCartDirector cartDirector = new ShoppingCartDirector();
+		ShoppingCartBuilder cart1 = new ConsoleCartBuilder();
+		cartDirector.setShoppingCartBuilder(cart1);
+		cartDirector.constructCart();
+		ShoppingCart shoppingCart = cartDirector.getCart();
 		
-
+		cart1.addProductToCart(shoppingCart, product);
+		cart1.showProducts();		
+		
 	}
-
 }

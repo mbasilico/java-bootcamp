@@ -1,23 +1,25 @@
 package exercises.one.catalogue;
 
-public abstract class CatalogueBuilder {
+import exercises.one.product.Product;
 
-	protected Catalogue catalogue;
+public abstract class CatalogueBuilder extends Catalogue{
+
+	protected Catalogue catalogueBuilder;
 
 	public void createNewCatalogue() {
-		catalogue = new Catalogue();
+		catalogueBuilder = new Catalogue();
 	}
 
-	public Catalogue getCatalogue() {
-		return catalogue;
+	public Catalogue getCatalogueBuilder() {
+		return catalogueBuilder;
 	}
 
 	public abstract void buildCatalogue();
 
 	public abstract void buildCatalogueType();
 	
-	public abstract void addProductInCatalogue (Catalogue catalogue);
+	public abstract void addProductToCatalogue (Catalogue catalogue);
 	
-	public abstract void deleteProductFromCatalogue(Catalogue catalogue);
+	public abstract void deleteProductFromCatalogue(Catalogue catalogue, Product product);
 
 }
