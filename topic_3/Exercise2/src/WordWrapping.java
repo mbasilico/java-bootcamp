@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.ArrayList;
+
 
 public class WordWrapping {
 	
@@ -38,7 +38,7 @@ public class WordWrapping {
 	
 	public static void main(String args[]){
 		
-		wordParse(1,"1 2 3 4 5 6 7 8 9 10");
+		wordParse(7,"Hello world!");
 	}
 
 }
