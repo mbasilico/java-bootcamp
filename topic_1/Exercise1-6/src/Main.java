@@ -1,27 +1,16 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
 	public static void main(String[] args) throws Exception {
 		
-		
-		List<Product> items;
-		items = new ArrayList<Product>(); 
-		
 		ShoppingCart cart = new ShoppingCart();
 		
 		cart.getList();
+		System.out.println("Items in cart: ");
+		cart.addToCart(1,"Glass",35);
+		cart.addToCart(3,"Dish",10);
+		cart.payOrder("CashDiscount");
 		
-		Product product1 = new Product(1,"Glass",35); //the user select two items.
-	    Product product2 = new Product(3,"Dish",10);
-	    items.add(product1); 
-	    items.add(product2); //save selection into array
-	    
-	    cart.addToCart(items);
-	    
-	    cart.payOrder("CashDiscount", items);
-	    
-		}
+	}
 
 }

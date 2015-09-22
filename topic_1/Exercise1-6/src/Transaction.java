@@ -13,16 +13,12 @@ public class Transaction {
 	List<Integer> ordid = new ArrayList<Integer>();
 	
 	
-	public void selectProduct(List<Product> items) throws InterruptedException{
+	public void selectedProducts(List<Product> items) throws InterruptedException{
 		
-		System.out.println("Items in cart: ");
-
 		for (Product product : items) {
-	         System.out.println("Product: [ID : " + product.getProductId() + ", Name : " + product.getDescp()+ ", Price : " + product.getPrice() +" ]"); // show array list
 	         total = total+product.getPrice(); // calculate total from array, save into the variable total
 	         ordid.add(product.getProductId());
-	         
-		}    
+	    }    
 			 
 		lock.lock();
 		//sql query to get the last orderId from Order table. Save result into orderId variable.
