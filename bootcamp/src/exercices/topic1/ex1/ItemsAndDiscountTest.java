@@ -31,6 +31,8 @@ public class ItemsAndDiscountTest {
 		Item i4 = new Item(4, null, null, 20);
 		this.listaTest.add(i4);
 		assertEquals(this.listaTest.size(), 3);
+		this.listaTest.get(2).toWordString();
+		assertEquals(this.listaTest.get(2).toWordString(), "null....... $ twenty and 00/100 dollars");
 		this.listaTest.clear();
 		assertEquals(listaTest.size(), 0);
 	}

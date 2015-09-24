@@ -10,4 +10,6 @@ public interface ItemInterface {
 
 	public String toString();
 
+	public String toWordString();
+
 }

@@ -1,5 +1,5 @@
 package exercices.topic1.ex1;
-
+import exercices.topic3.ex1.NumberToString;;
 public class Item implements ItemInterface {
 
 	private int id;
@@ -49,6 +49,11 @@ public class Item implements ItemInterface {
 	@Override
 	public String toString() {
 		return this.getName() + "....... $" + this.getPrice();
+	}
+
+	@Override
+	public String toWordString() {
+		return this.getName() + "....... $ " + NumberToString.convert(this.getPrice());
 	}
 
 }

@@ -2,6 +2,8 @@ package exercices.topic1.ex1;
 
 import java.util.ArrayList;
 
+import exercices.topic3.ex1.NumberToString;
+
 public class Offer implements ItemInterface {
 
 	private ArrayList<Item> items;
@@ -35,6 +37,16 @@ public class Offer implements ItemInterface {
 		}
 		return null;
 
+	}
+
+	@Override
+	public String toWordString() {
+		System.out.println(this.getName() + "....... $" + NumberToString.convert(this.getPrice()));
+		for (Item i : this.items) {
+			System.out.println(" " + i.toString());
+
+		}
+		return null;
 	}
 
 }
