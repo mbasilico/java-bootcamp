@@ -11,7 +11,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [Name= " + name + ", ProductID= " + productID + ", Price= " + price + ", Stock= " + stock + ", Description= "
+		return "Product info: [Name= " + name + ", ProductID= " + productID + ", Price= " + price + ", Stock= " + stock + ", Description= "
 				+ description + ", Catalogue Type: " + catalogueType + "]";
 	}
 

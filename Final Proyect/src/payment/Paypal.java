@@ -33,20 +33,25 @@ public class Paypal implements Payment {
 	@Override
 	public void payWith(ShoppingCart cart, Client client) {
 		if (validatePaypal(getEmail(), getPassword())) {
-			double subtotal = cart.totalPrice();
-			double discount = cart.cheapestProduct().getPrice();
-			double total = subtotal - discount;
+			try {
+				double subtotal = cart.totalPrice();
+				double discount = cart.cheapestProduct().getPrice();
+				double total = subtotal - discount;
 
-			System.out.println("Payment code " + Counter.getTransactionCount());
-			Counter.increaseTransactionCount();
-			System.out.println("Subtotal: $" + subtotal + "\n" + "Discount: $" + discount
-					+ " The cheapest product for free by Paypal payment. \n" + "Total: $" + total 
-					+ "has been paid with Paypal.");
-			Transaction t = new Transaction();
-			t.getTransaction(cart, client, total);
-			// it should save the transaction somewhere, right?
+				System.out.println("Payment code " + Counter.getTransactionCount());
+				Counter.increaseTransactionCount();
+				System.out.println("Subtotal: $" + subtotal + "\n" + "Discount: $" + discount
+						+ " The cheapest product for free by Paypal payment. \n" + "Total: $" + total 
+						+ "has been paid with Paypal.");
+				Transaction t = new Transaction();
+				t.getTransaction(cart, client, total);
+				// it should save the transaction somewhere, right?
+			} catch (Exception e) {
+				System.out.println("it has been an error with payment. " + e);			
+			}
 		} else {
 			System.out.println("Wrong validation");
 		}
+		// add send mail to Manager
 	}
 }

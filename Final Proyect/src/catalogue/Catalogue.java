@@ -1,23 +1,33 @@
 package catalogue;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import product.Product;
 
 public class Catalogue {
 
-	ArrayList<Product> catalogue;
+	List<Product> catalogue = new ArrayList<Product>();
 	String type;
 
-	public ArrayList<Product> getCatalogue() {
+	public List<Product> getCatalogue() {
 		return catalogue;
+	}
+
+	public Product getProduct(String id) {
+		for (Product product : catalogue) {
+			if (product.getProductID() == id) {
+				return product;
+			}
+		}
+		return null;
 	}
 
 	public String getType() {
 		return type;
 	}
 
-	public void setCatalogue(ArrayList<Product> catalogue) {
+	public void setCatalogue(List<Product> catalogue) {
 		this.catalogue = catalogue;
 	}
 
@@ -45,13 +55,13 @@ public class Catalogue {
 		}
 		return show;
 	}
-	
-	public void addProduct(Product product){
+
+	public void addProduct(Product product) {
 		this.catalogue.add(product);
 	}
-	
-	public void deleteProductFromCart(Product product) {
-		this.catalogue.remove(catalogue.indexOf(product));		
+
+	public void removeProductFromCatalogue(Product product) {
+		this.catalogue.remove(catalogue.indexOf(product));
 	}
 
 }

@@ -85,7 +85,7 @@ public class ShoppingCart {
 		this.cart.add(product);
 	}
 
-	public void deleteProductFromCart(Product product) {
+	public void removeProductFromCart(Product product) {
 		this.cart.remove(cart.indexOf(product));
 	}
 

@@ -21,7 +21,7 @@ public class Transaction {
 	protected Transaction() {
 	}
 
-	public void newTransaction(ShoppingCart cart, Client client, double total) {
+	public synchronized void newTransaction(ShoppingCart cart, Client client, double total) {
 		this.clientName = client.getName();
 		this.clientID = client.getClientID();
 		this.totalPayed = total;
@@ -34,7 +34,7 @@ public class Transaction {
 		this.date = date;
 	}
 
-	protected Transaction getTransaction(ShoppingCart cart, Client client, double total) {
+	protected synchronized Transaction getTransaction(ShoppingCart cart, Client client, double total) {
 		Transaction t = new Transaction();
 		t.newTransaction(cart, client, total);
 		return t;

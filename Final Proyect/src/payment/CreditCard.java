@@ -32,24 +32,36 @@ public class CreditCard implements Payment {
 	}
 
 	public static double creditCardDiscount(ShoppingCart cart) {
-		double discount = cart.totalPrice() * 0.1; // the Manager should have the option to change the %
-		return discount;
+		try {
+			double discount = cart.totalPrice() * 0.1; // the Manager should have the option to change the %
+			return discount;
+		} catch (Exception e) {
+			System.out.println("There may be no products. "+ e);
+			return 0;
+		}
 	}
 
 	@Override
 	public void payWith(ShoppingCart cart, Client client) {
 		if (validateCreditCard(getUserName(), getCardNumber())) {
-			double subtotal = cart.totalPrice();
-			double discount = creditCardDiscount(cart);
-			double total = subtotal - discount;
-			System.out.println("Payment code " + Counter.getTransactionCount());
-			Counter.increaseTransactionCount();
-			System.out.println("Subtotal: $" + subtotal + "\n" + "Discount: $" + discount 
-					+ " 10% of discount. \n" + "Total: $" + total + " paid with credit card");
-			// add Transaction
+			try {
+				double subtotal = cart.totalPrice();
+				double discount = creditCardDiscount(cart);
+				double total = subtotal - discount;
+				System.out.println("Payment code " + Counter.getTransactionCount());
+				Counter.increaseTransactionCount();
+				System.out.println("Subtotal: $" + subtotal + "\n" + "Discount: $" + discount 
+						+ " 10% of discount. \n" + "Total: $" + total + " paid with credit card");
+				Transaction t = new Transaction();
+				t.getTransaction(cart, client, total);
+				// it should save the transaction somewhere, right?
+			} catch (Exception e) {
+				System.out.println("it has been an error with payment. " + e);
+			}
 		} else {
 			System.out.println("Wrong validation");
 		}
+		// add send mail to Manager
 	}
 
 }
