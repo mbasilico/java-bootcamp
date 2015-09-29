@@ -1,17 +1,21 @@
 package exercices.topic1.ex1;
-import exercices.topic3.ex1.NumberToString;;
+
+import exercices.topic3.ex1.NumberToString;
+
 public class Item implements ItemInterface {
 
 	private int id;
 	private String name;
 	private String description;
 	private float price;
-
-	public Item(int id, String name, String description, float price) {
+	private String category;
+	
+	public Item(int id, String name, String description, float price, String category) {
 		this.id = id;
 		this.setName(name);
 		this.setDescription(description);
 		this.setPrice(price);
+		this.setCategory(category);
 	}
 
 	public int getId() {
@@ -44,6 +48,14 @@ public class Item implements ItemInterface {
 
 	public void setPrice(float price) {
 		this.price = price;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	@Override

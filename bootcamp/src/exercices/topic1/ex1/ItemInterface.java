@@ -12,4 +12,6 @@ public interface ItemInterface {
 
 	public String toWordString();
 
+	public String getCategory();
+
 }

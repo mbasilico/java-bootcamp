@@ -49,4 +49,10 @@ public class Offer implements ItemInterface {
 		return null;
 	}
 
+	@Override
+	public String getCategory() {
+		return "Offers dont have categories";
+		
+	}
+
 }

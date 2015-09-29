@@ -1,4 +1,4 @@
-package shoppingCart.api;
+package exercices.topic1.ex1;
 
 import static org.junit.Assert.*;
 

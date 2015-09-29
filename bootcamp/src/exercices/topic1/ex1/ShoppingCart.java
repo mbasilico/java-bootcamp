@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 public class ShoppingCart extends Observable {
-
-	private ArrayList<Item> items;
+	
+	private String name;
+	private ItemsManager itemM;
+	private ArrayList<Item> items = new ArrayList<Item>();
 	private Transaction t;
 
-	public ShoppingCart() {
-		items = new ArrayList<Item>();
+	public ShoppingCart(String name) {
+		 this.itemM = new  ItemsManager(items);
+		 this.setName(name);
 	}
 
 	public ArrayList<Item> getItems() {
@@ -17,17 +20,25 @@ public class ShoppingCart extends Observable {
 	}
 
 	public void setItems(ArrayList<Item> items) {
-		this.items = items;
+		this.items = itemM.getItems();
 	}
 
-	public void deleteItem(Item i) {
-		items.remove(i);
+	public void deleteItem(int i) {
+		itemM.RemoveItem(i);
 	}
 
 	public void addItem(Item i) {
-		items.add(i);
+		itemM.addItem(i);
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public void NewTransaction(float amount, ArrayList<Item> items){
 		this.t = new Transaction(amount,items);
 		TransactionMade(t);
@@ -38,5 +49,10 @@ public class ShoppingCart extends Observable {
 		notifyObservers("new transaction added with id " + t.getIDTransaction());
 
 	}
+	
+	public float pay(PaymentStrategy paymentMethod){
+		return paymentMethod.makePayment(this.itemM.getItems());
+	}
+
 	
 }
