@@ -2,6 +2,7 @@ package product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 @Table(name = "catalogue")
 public class Product {
 
+	@GeneratedValue
 	@Id
 	@Column(name = "productID", nullable = false)
 	String productID;

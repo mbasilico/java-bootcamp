@@ -3,11 +3,19 @@ package cart;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import product.Product;
 
+@Entity
 public class Cart {
 
+	@OneToMany
 	public List<Product> cart = new ArrayList<Product>();
+	@Id
+	@GeneratedValue
 	int cartID;
 
 	public List<Product> getCart() {
