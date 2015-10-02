@@ -7,7 +7,7 @@ import product.Product;
 
 public class Cart {
 
-	public List<Product> cart = new ArrayList<>();
+	public List<Product> cart = new ArrayList<Product>();
 	int cartID;
 
 	public List<Product> getCart() {
