@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-	UserDAO userDAO;
+	UserDAOImp userDAOImp;
 
 	@OneToMany(mappedBy = "userName", fetch = FetchType.LAZY)
 	private List<User> userList = new ArrayList<User>();

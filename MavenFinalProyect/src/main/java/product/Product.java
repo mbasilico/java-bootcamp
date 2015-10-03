@@ -1,10 +1,13 @@
 package product;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "catalogue")
@@ -16,19 +19,24 @@ public class Product {
 	String productID;
 
 	@Column(name = "name", unique = true, nullable = false)
+	@Size(max = 30)
 	String name;
 
-	@Column(name = "price", nullable = false)
-	double price;
+	@Column(name = "price", nullable = false, precision = 13, scale = 2)
+	BigDecimal price;
 
 	@Column(name = "stock", nullable = false)
 	int stock;
 
 	@Column(name = "description")
+	@Size(max = 255)
 	String description;
 
 	@Column(name = "catalogueType", nullable = false)
-	String catalogueType;
+	String catalogueType;	
+
+	public Product() {
+	}
 
 	public String getProductID() {
 		return productID;
@@ -38,7 +46,7 @@ public class Product {
 		return name;
 	}
 
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
@@ -62,7 +70,7 @@ public class Product {
 		this.name = name;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

@@ -9,5 +9,10 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">""</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <!-- add classes to map from here -->        
+        <mapping class="main.java.cart.Cart"/>
+        <mapping class="main.java.product.Product"/>
+        <mapping class="main.java.user.User"/>
     </session-factory>
 </hibernate-configuration>
