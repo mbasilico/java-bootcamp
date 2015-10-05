@@ -1,4 +1,4 @@
-package user;
+package service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,9 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import org.springframework.stereotype.Service;
+
+import model.User;
+import repository.UserDAOImp;
 
 @Service
 public class UserService {
@@ -24,7 +27,7 @@ public class UserService {
 		return userList.contains(user.getUserName());
 	}
 
-	protected boolean addNewUser(User newUser) {
+	public boolean addNewUser(User newUser) {
 		if (userExist(newUser)) {
 			userList.add(newUser);
 			return true;
@@ -32,7 +35,7 @@ public class UserService {
 		return false;
 	}
 	
-	protected User loginGetUser(String userName, String userPassword){
+	public User loginGetUser(String userName, String userPassword){
 		User user = new User();
 		
 		// find out how to do it

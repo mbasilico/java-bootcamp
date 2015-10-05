@@ -1,6 +1,8 @@
-package user;
+package repository;
 
 import java.util.List;
+
+import model.User;
 
 public interface UserDAO {
 	

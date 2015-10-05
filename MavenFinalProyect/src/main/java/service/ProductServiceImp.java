@@ -1,8 +1,11 @@
-package product;
+package service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import model.Product;
+import repository.ProductDAOImp;
 
 @Service
 public class ProductServiceImp implements ProductService {
@@ -13,7 +16,6 @@ public class ProductServiceImp implements ProductService {
 		productDAOImp.openCurrentSessionwithTransaction();
 		productDAOImp.persist(entity);
 		productDAOImp.closeCurrentSessionwithTransaction();
-
 	}
 
 	public void update(Product entity) {
@@ -47,7 +49,6 @@ public class ProductServiceImp implements ProductService {
 		productDAOImp.openCurrentSessionwithTransaction();
 		productDAOImp.deleteAll();
 		productDAOImp.closeCurrentSessionwithTransaction();
-
 	}
 	
 	public ProductDAOImp productDAOImp(){
@@ -60,5 +61,10 @@ public class ProductServiceImp implements ProductService {
 		productDAOImp.closeCurrentSession();
 		return product;
 	}
+
+	/*public boolean addNewProduct(Product product) {
+		
+		return false;
+	}*/
 
 }

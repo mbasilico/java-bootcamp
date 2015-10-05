@@ -1,4 +1,4 @@
-package product;
+package repository;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+
+import model.Product;
 
 public class ProductDAOImp implements ProductDAO<Product, String> {
 

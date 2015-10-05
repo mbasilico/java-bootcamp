@@ -1,10 +1,11 @@
-package product;
+package model;
 
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -13,37 +14,38 @@ import javax.validation.constraints.Size;
 @Table(name = "catalogue")
 public class Product {
 
-	@GeneratedValue
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "productID", nullable = false)
-	String productID;
+	private Long productID;
 
 	@Column(name = "name", unique = true, nullable = false)
 	@Size(max = 30)
-	String name;
+	private String productName;
 
 	@Column(name = "price", nullable = false, precision = 13, scale = 2)
-	BigDecimal price;
+	private BigDecimal price;
 
 	@Column(name = "stock", nullable = false)
-	int stock;
+	private int stock;
 
 	@Column(name = "description")
 	@Size(max = 255)
-	String description;
+	private String description;
 
 	@Column(name = "catalogueType", nullable = false)
-	String catalogueType;	
+	private String catalogueType;	
 
 	public Product() {
 	}
 
-	public String getProductID() {
+	public Long getProductID() {
 		return productID;
 	}
 
 	public String getName() {
-		return name;
+		return productName;
 	}
 
 	public BigDecimal getPrice() {
@@ -62,12 +64,12 @@ public class Product {
 		return catalogueType;
 	}
 
-	public void setProductID(String productID) {
+	public void setProductID(Long productID) {
 		this.productID = productID;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.productName = name;
 	}
 
 	public void setPrice(BigDecimal price) {

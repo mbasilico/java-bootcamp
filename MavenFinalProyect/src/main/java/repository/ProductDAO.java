@@ -1,6 +1,8 @@
-package product;
+package repository;
 
 import java.util.List;
+
+import model.Product;
 
 public interface ProductDAO<P, Id> {
 
