@@ -91,4 +91,9 @@ public class ProductDAOImp implements ProductDAO<Product, String> {
 		}
 	}
 
+	public Product findByName(String name) {
+		Product product = (Product) getCurrentSession().get(Product.class, name);
+		return product;
+	}
+
 }

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan("main.java.user")
+@ComponentScan("main.java")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 	

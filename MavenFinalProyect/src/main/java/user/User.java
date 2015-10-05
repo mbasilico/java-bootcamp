@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
@@ -14,18 +15,23 @@ public class User {
 	@Id
 	@Column(name = "userID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String userID;
+	private int userID;
 
 	@Column(name = "userName", nullable = false)
+	@Size(max = 30)
 	private String userName;
 
 	@Column(name = "userPassword", nullable = false)
+	@Size(max = 30)
 	private String userPassword;
 
 	@Column(name = "userShippingAdress", nullable = false)
 	private String userShippingAdress;
+	
+	public User() {		
+	}
 
-	public String getUserID() {
+	public int getUserID() {
 		return userID;
 	}
 
@@ -41,7 +47,7 @@ public class User {
 		return userShippingAdress;
 	}
 
-	public void setUserID(String userID) {
+	public void setUserID(int userID) {
 		this.userID = userID;
 	}
 

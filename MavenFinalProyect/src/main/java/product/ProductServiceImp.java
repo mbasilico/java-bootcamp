@@ -54,4 +54,11 @@ public class ProductServiceImp implements ProductService {
 		return productDAOImp;
 	}
 
+	public Product findByName(String name) {
+		productDAOImp.openCurrentSession();
+		Product product = productDAOImp.findByName(name);
+		productDAOImp.closeCurrentSession();
+		return product;
+	}
+
 }

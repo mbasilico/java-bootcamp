@@ -3,6 +3,7 @@ package user;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,7 +13,7 @@ public class UserController {
 	UserService userService;
 
 	@RequestMapping(value="*/newUser", method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public boolean newUser(String userName, String userPassword, String userShippingAdress) throws Exception {
+	public boolean newUser(@RequestParam String userName,@RequestParam String userPassword,@RequestParam String userShippingAdress) throws Exception {
 		User user = new User();
 		user.setUserName(userName);
 		user.setUserPassword(userPassword);
@@ -30,7 +31,7 @@ public class UserController {
 		return false;
 	}
 	
-	@RequestMapping(value="*/hello", method=RequestMethod.GET)
+	@RequestMapping(value="*/hello", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public String helloTest(){
 		return "hello";
 	}
