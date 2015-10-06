@@ -1,4 +1,4 @@
-package repository;
+package shoppingcart.repository;
 
 import java.util.List;
 
@@ -7,9 +7,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Repository;
 
-import model.Product;
+import shoppingcart.model.Product;
 
+@Repository
 public class ProductDAOImp implements ProductDAO<Product, String> {
 
 	private Session currentSession;
@@ -82,7 +84,7 @@ public class ProductDAOImp implements ProductDAO<Product, String> {
 
 	public List<Product> findAll() {
 		@SuppressWarnings("unchecked")
-		List<Product> productList = (List<Product>) getCurrentSession().createQuery("from Catalogue").list();
+		List<Product> productList = (List<Product>) getCurrentSession().createQuery("from Product").list();
 		return productList;
 	}
 

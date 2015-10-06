@@ -1,8 +1,9 @@
-package controller;
+package shoppingcart.controller;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,14 +11,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.Product;
-import service.ProductServiceImp;
+import shoppingcart.model.Product;
+import shoppingcart.service.ProductServiceImp;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 	
+	@Autowired
 	ProductServiceImp productServiceImp;
+	
+	@RequestMapping("/")
+    public String index() {
+        return "Greetings from Spring Boot!";
+    }
 	
 	@RequestMapping(value="/getProductByID", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Product getProductByID(String id){
@@ -41,8 +48,7 @@ public class ProductController {
 			System.out.println("It couldn't get the product. "+ e );
 		}
 		return null;
-	}
-	
+	}	
 	
 	@RequestMapping(value="/getProducts", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getProducts(){

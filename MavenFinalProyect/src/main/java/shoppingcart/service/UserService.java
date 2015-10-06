@@ -1,4 +1,4 @@
-package service;
+package shoppingcart.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import javax.persistence.OneToMany;
 
 import org.springframework.stereotype.Service;
 
-import model.User;
-import repository.UserDAOImp;
+import shoppingcart.model.User;
+import shoppingcart.repository.UserDAOImp;
 
 @Service
 public class UserService {

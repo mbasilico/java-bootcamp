@@ -1,8 +1,8 @@
-package repository;
+package shoppingcart.repository;
 
 import java.util.List;
 
-import model.Product;
+import shoppingcart.model.Product;
 
 public interface ProductDAO<P, Id> {
 

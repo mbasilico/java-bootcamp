@@ -1,4 +1,4 @@
-package model;
+package shoppingcart.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

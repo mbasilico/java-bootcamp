@@ -1,4 +1,4 @@
-package repository;
+package shoppingcart.repository;
 
 import java.util.List;
 
@@ -9,17 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import model.User;
+import shoppingcart.model.User;
 
 @Repository
 public class UserDAOImp implements UserDAO {
 
-	@Autowired
 	private SessionFactory sessionFactory;
 
 	public UserDAOImp() {         
     }
 
+//	@Autowired
 	public UserDAOImp(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

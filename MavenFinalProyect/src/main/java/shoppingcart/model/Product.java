@@ -1,4 +1,4 @@
-package model;
+package shoppingcart.model;
 
 import java.math.BigDecimal;
 
@@ -13,7 +13,6 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "catalogue")
 public class Product {
-
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,6 +37,16 @@ public class Product {
 	private String catalogueType;	
 
 	public Product() {
+	}	
+
+	public Product(Long productID, String productName, BigDecimal price, int stock, String description,
+			String catalogueType) {
+		this.productID = productID;
+		this.productName = productName;
+		this.price = price;
+		this.stock = stock;
+		this.description = description;
+		this.catalogueType = catalogueType;
 	}
 
 	public Long getProductID() {

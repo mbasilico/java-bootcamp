@@ -1,17 +1,22 @@
-package service;
+package shoppingcart.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import model.Product;
-import repository.ProductDAOImp;
+import shoppingcart.model.Product;
+import shoppingcart.repository.ProductDAOImp;
 
 @Service
-public class ProductServiceImp implements ProductService {
+public class ProductServiceImp {
 
-	private static ProductDAOImp productDAOImp;
+	@Autowired
+	private ProductDAOImp productDAOImp;
 
+	static {
+		System.out.println("Inicio ProductServiceImp");
+	}
 	public void persist(Product entity) {
 		productDAOImp.openCurrentSessionwithTransaction();
 		productDAOImp.persist(entity);

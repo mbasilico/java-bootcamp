@@ -1,8 +1,8 @@
-package service;
+package shoppingcart.service;
 
 import java.util.List;
 
-import model.Product;
+import shoppingcart.model.Product;
 
 public interface ProductService {
 
