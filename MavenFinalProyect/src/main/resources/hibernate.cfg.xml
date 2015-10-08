@@ -9,10 +9,12 @@
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<property name="hibernate.current_session_context_class">thread</property>
         
         <!-- add classes to map from here -->
-		<!-- <mapping class="shoppingcart.model.Cart"/> -->
-		<!-- <mapping class="shoppingcart.model.User"/> -->
+		<mapping class="shoppingcart.model.Cart"/>
+		<mapping class="shoppingcart.model.User"/>
 		<mapping class="shoppingcart.model.Product"/>
 	</session-factory>
 </hibernate-configuration>

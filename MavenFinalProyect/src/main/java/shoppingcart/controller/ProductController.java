@@ -23,7 +23,7 @@ public class ProductController {
 	
 	@RequestMapping("/")
     public String index() {
-        return "Greetings from Spring Boot!";
+        return "Product Controller - Greetings from Spring Boot!";
     }
 	
 	@RequestMapping(value="/getProductByID", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

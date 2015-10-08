@@ -15,7 +15,7 @@ public class User {
 	@Id
 	@Column(name = "userID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int userID;
+	private Long userID;
 
 	@Column(name = "userName", nullable = false)
 	@Size(max = 30)
@@ -31,7 +31,7 @@ public class User {
 	public User() {		
 	}
 
-	public int getUserID() {
+	public Long getUserID() {
 		return userID;
 	}
 
@@ -47,7 +47,7 @@ public class User {
 		return userShippingAdress;
 	}
 
-	public void setUserID(int userID) {
+	public void setUserID(Long userID) {
 		this.userID = userID;
 	}
 

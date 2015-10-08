@@ -19,8 +19,14 @@ public class UserService {
 	@OneToMany(mappedBy = "userName", fetch = FetchType.LAZY)
 	private List<User> userList = new ArrayList<User>();
 
-	public ArrayList<User> requestUsers() {
-		return null;
+	public List<User> requestUsers() {
+//		userDAOImp.
+		return userDAOImp.userList();
+	}
+	
+	public User findById(Long id){
+		User user = userDAOImp.getUser(id);
+		return user;
 	}
 
 	public boolean userExist(User user) {

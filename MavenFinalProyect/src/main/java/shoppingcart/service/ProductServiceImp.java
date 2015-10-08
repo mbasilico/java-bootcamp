@@ -15,7 +15,7 @@ public class ProductServiceImp {
 	private ProductDAOImp productDAOImp;
 
 	static {
-		System.out.println("Inicio ProductServiceImp");
+		System.out.println("Inició ProductServiceImp");
 	}
 	public void persist(Product entity) {
 		productDAOImp.openCurrentSessionwithTransaction();
@@ -66,10 +66,5 @@ public class ProductServiceImp {
 		productDAOImp.closeCurrentSession();
 		return product;
 	}
-
-	/*public boolean addNewProduct(Product product) {
-		
-		return false;
-	}*/
 
 }

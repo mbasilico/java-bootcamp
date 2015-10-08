@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import shoppingcart.model.Product;
 import shoppingcart.model.User;
 
 @Repository
@@ -26,15 +27,18 @@ public class UserDAOImp implements UserDAO {
 	
 	@Transactional
 	public List<User> userList() {
-		@SuppressWarnings("unchecked")
-		List<User> userList = (List<User>) sessionFactory.getCurrentSession()
-				.createCriteria(User.class)
-				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();	 
-	        return userList;
+//		@SuppressWarnings("unchecked")
+//		List<User> userList = (List<User>) sessionFactory.getCurrentSession()
+//				.createCriteria(User.class)
+//				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();	 
+//	        return userList;
+		List<User> userList = (List<User>) sessionFactory.getCurrentSession().createQuery("FROM User").list();
+		return userList;
+		
 	}
 
 	@Transactional
-	public User getUser(int id) {
+	public User getUser(Long id) {
 		String hql = "from User where id=" + id;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
@@ -53,7 +57,7 @@ public class UserDAOImp implements UserDAO {
 	}
 
 	@Transactional
-	public void deleteUser(int id) {
+	public void deleteUser(Long id) {
 		User userToDelete = new User();
         userToDelete.setUserID(id);
         sessionFactory.getCurrentSession().delete(userToDelete);

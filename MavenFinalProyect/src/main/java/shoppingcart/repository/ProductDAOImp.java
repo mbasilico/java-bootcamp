@@ -13,6 +13,10 @@ import shoppingcart.model.Product;
 
 @Repository
 public class ProductDAOImp implements ProductDAO<Product, String> {
+	
+	static {
+		System.out.println("Inició ProductDAOImp");
+	}
 
 	private Session currentSession;
 
@@ -84,7 +88,7 @@ public class ProductDAOImp implements ProductDAO<Product, String> {
 
 	public List<Product> findAll() {
 		@SuppressWarnings("unchecked")
-		List<Product> productList = (List<Product>) getCurrentSession().createQuery("from Product").list();
+		List<Product> productList = (List<Product>) getCurrentSession().createQuery("FROM Product").list();
 		return productList;
 	}
 
@@ -95,8 +99,8 @@ public class ProductDAOImp implements ProductDAO<Product, String> {
 		}
 	}
 
-	public Product findByName(String name) {
-		Product product = (Product) getCurrentSession().get(Product.class, name);
+	public Product findByName(String name) {			
+		Product product = (Product) getCurrentSession().createQuery("FROM Product WHERE name = '"+name+"'");		
 		return product;
 	}
 

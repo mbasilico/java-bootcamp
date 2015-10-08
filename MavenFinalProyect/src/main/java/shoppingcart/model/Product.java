@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -35,6 +37,10 @@ public class Product {
 
 	@Column(name = "catalogueType", nullable = false)
 	private String catalogueType;	
+	
+	@ManyToOne
+	@JoinColumn(name="cartID")
+	private Cart cart;
 
 	public Product() {
 	}	
