@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +53,7 @@ public class UserController {
 	
 	@RequestMapping(value="/hello", method=RequestMethod.GET)
     public String index() {
-        return "Cart Controller - Greetings from Spring Boot!";
+        return "User Controller - Greetings from Spring Boot!";
 	}
 	
 }

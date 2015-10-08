@@ -46,5 +46,10 @@ public class ShoppingCartController {
 	public ArrayList<Item> delCart(@PathVariable int idcart) {
 		return service.deleteCart(idcart);
 	}
+	
+	@RequestMapping(value="/hello", method=RequestMethod.GET)
+    public String index() {
+        return "Cart Controller - Greetings from Spring Boot!";
+	}
 
 }

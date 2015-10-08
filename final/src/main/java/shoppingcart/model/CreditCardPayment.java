@@ -6,7 +6,7 @@ public class CreditCardPayment implements PaymentStrategy {
 
 	private String name;
 	private int creditCardNumber;
-	private float amount;
+	private double amount;
 
 	public CreditCardPayment(String name, int creditCardNumber) {
 		this.name = name;
@@ -29,7 +29,7 @@ public class CreditCardPayment implements PaymentStrategy {
 		this.creditCardNumber = creditCardNumber;
 	}
 
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
@@ -37,7 +37,7 @@ public class CreditCardPayment implements PaymentStrategy {
 		this.amount = amount;
 	}
 
-	public float makePayment(List<Item> items) {
+	public double makePayment(List<Item> items) {
 		setAmount(new TenPercentDiscount().applyDiscount(items));
 		return getAmount();
 	}

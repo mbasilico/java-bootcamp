@@ -4,10 +4,10 @@ import java.util.List;
 
 public class CheapestFreeDiscount {
 
-	public float applyDiscount(List<Item> items) {
+	public double applyDiscount(List<Item> items) {
 
-		float min = 999999999;
-		float amount = 0;
+		double min = 999999999;
+		double amount = 0;
 		for (Item i : items) {
 			amount += i.getPrice();
 			if (i.getPrice() < min)

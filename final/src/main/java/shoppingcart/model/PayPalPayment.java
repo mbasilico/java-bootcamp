@@ -6,7 +6,7 @@ public class PayPalPayment implements PaymentStrategy {
 
 	private String email;
 	private String password;
-	private float amount;
+	private double amount;
 
 	public PayPalPayment(String email, String password) {
 		this.email = email;
@@ -25,19 +25,19 @@ public class PayPalPayment implements PaymentStrategy {
 		return password;
 	}
 
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(float amount) {
-		this.amount = amount;
+	public void setAmount(double d) {
+		this.amount = d;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public float makePayment(List<Item> items) {
+	public double makePayment(List<Item> items) {
 		setAmount(new CheapestFreeDiscount().applyDiscount(items));
 		return getAmount();
 	}

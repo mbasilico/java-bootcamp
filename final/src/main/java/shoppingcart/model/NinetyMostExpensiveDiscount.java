@@ -4,9 +4,9 @@ import java.util.List;
 
 public class NinetyMostExpensiveDiscount {
 
-	public float applyDiscount(List<Item> items) {
-		float max = 0;
-		float amount = 0;
+	public double applyDiscount(List<Item> items) {
+		double max = 0;
+		double amount = 0;
 		for (Item i : items) {
 			amount += i.getPrice();
 			if (i.getPrice() > max)

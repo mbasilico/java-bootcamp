@@ -6,44 +6,42 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//import exercices.topic3.ex1.NumberToString;
 
 @Entity
-@Table(name="item")
-public class Item implements ItemInterface {
+@Table(name="ITEM")
+public class Item  {
 
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "itemID", nullable = false)
-	private Integer itemID;
+	@Column(name = "ID", nullable = false)
+	private Integer id;
 	
-	@Column(name = "name", unique = true, nullable = false)
+	@Column(name = "NAME", unique = true, nullable = false)
 	private String name;
 	
-	@Column(name = "description")
-	private String description;
+	@Column(name = "DESC")
+	private String desc;
 	
-	@Column(name = "price", nullable = false)
-	private float price;
+	@Column(name = "PRICE")
+	private double price;
 	
 	@Column(name = "category")
 	private String category;
 	
-	public Item(Integer id, String name, String description, float price, String category) {
-		this.itemID = id;
+	public Item(String name, String desc, double price, String category) {
 		this.setName(name);
-		this.setDescription(description);
+		this.setDescription(desc);
 		this.setPrice(price);
 		this.setCategory(category);
 	}
 
 	public int getId() {
-		return itemID;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.itemID = id;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -55,19 +53,19 @@ public class Item implements ItemInterface {
 	}
 
 	public String getDescription() {
-		return description;
+		return desc;
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.desc = description;
 	}
 
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
-		this.price = price;
+	public void setPrice(double price2) {
+		this.price = price2;
 	}
 
 	public String getCategory() {
@@ -83,9 +81,5 @@ public class Item implements ItemInterface {
 		return this.getName() + "....... $" + this.getPrice();
 	}
 
-//	@Override
-//	public String toWordString() {
-//		return this.getName() + "....... $ " + NumberToString.convert(this.getPrice());
-//	}
 
 }

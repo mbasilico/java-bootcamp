@@ -4,17 +4,17 @@ import java.util.List;
 
 public class CashPayment implements PaymentStrategy {
 
-	private float amount;
+	private double amount;
 
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(float amount) {
-		this.amount = amount;
+	public void setAmount(double d) {
+		this.amount = d;
 	}
 
-	public float makePayment(List<Item> items) {
+	public double makePayment(List<Item> items) {
 		setAmount(new NinetyMostExpensiveDiscount().applyDiscount(items));
 		return getAmount();
 	}

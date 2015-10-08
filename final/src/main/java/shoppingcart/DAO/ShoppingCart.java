@@ -12,7 +12,7 @@ import shoppingcart.model.Transaction;
 @Repository
 public class ShoppingCart extends Observable {
 	
-	private Long cartId;
+	private Integer cartId;
 	private ItemsManager itemM;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	private Transaction t;
@@ -38,11 +38,11 @@ public class ShoppingCart extends Observable {
 		itemM.addItem(i);
 	}
 	
-	public Long getName() {
+	public Integer getName() {
 		return cartId;
 	}
 
-	public void setName(Long cartId) {
+	public void setName(Integer cartId) {
 		this.cartId = cartId;
 	}
 
@@ -57,7 +57,7 @@ public class ShoppingCart extends Observable {
 
 	}
 	
-	public float pay(PaymentStrategy paymentMethod){
+	public double pay(PaymentStrategy paymentMethod){
 		return paymentMethod.makePayment(this.itemM.getItems());
 	}
 
