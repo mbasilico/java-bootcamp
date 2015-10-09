@@ -2,20 +2,18 @@ package shoppingcart.model;
 
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Transaction {
 	private Date date;
 	private List<Item> items;
 	private float amount;
-	private static final AtomicInteger count = new AtomicInteger(0);
-	private final int transactionID;
+	
+	private long transactionID;
 
 	public Transaction(float amount, List<Item> items) {
 		this.date = new Date();
 		this.items = items;
 		this.amount = amount;
-		this.transactionID = count.incrementAndGet();
 	}
 
 	public Date getDate() {
@@ -42,7 +40,7 @@ public class Transaction {
 		this.amount = amount;
 	}
 
-	public int getIDTransaction() {
+	public long getIDTransaction() {
 		return transactionID;
 	}
 

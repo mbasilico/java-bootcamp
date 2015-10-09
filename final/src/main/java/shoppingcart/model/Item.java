@@ -3,32 +3,39 @@ package shoppingcart.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Entity
-@Table(name="ITEM")
+@Table(name="item")
 public class Item  {
 
 	
 	@Id
-	@GeneratedValue
-	@Column(name = "ID", nullable = false)
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", nullable = false)
+	private long id;
 	
-	@Column(name = "NAME", unique = true, nullable = false)
+	@Column(name = "name", unique = true, nullable = false)
 	private String name;
 	
-	@Column(name = "DESC")
+	@Column(name = "desc")
 	private String desc;
 	
-	@Column(name = "PRICE")
+	@Column(name = "price")
 	private double price;
 	
 	@Column(name = "category")
 	private String category;
 	
+	private Item(){
+		
+	}
 	public Item(String name, String desc, double price, String category) {
 		this.setName(name);
 		this.setDescription(desc);
@@ -36,7 +43,7 @@ public class Item  {
 		this.setCategory(category);
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 

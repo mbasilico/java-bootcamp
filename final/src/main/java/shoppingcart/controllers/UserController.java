@@ -1,5 +1,7 @@
 package shoppingcart.controllers;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +26,7 @@ public class UserController {
 	UserService service;
 	
 	@RequestMapping (value="/register", method= RequestMethod.POST)
-	public void regUser(@RequestBody String name, String pass){
-		User u = new User();
-		u.setUser(name);
-		u.setPassword(pass);
+	public void regUser(@RequestBody User u){
 		service.registerUser(u);
 	}
 	
@@ -38,17 +37,17 @@ public class UserController {
 	
 	@RequestMapping (value="/", method= RequestMethod.GET)
 	public List<User> showUser(){
-		return service.showUsers();
+		return (List<User>) service.showUsers();
+	}
+	
+	@RequestMapping (value="/{id}", method= RequestMethod.GET)
+	public User getUser(@PathVariable Long id){
+		return service.getUser(id);
 	}
 	
 	@RequestMapping (value="/{userID}", method= RequestMethod.DELETE)
 	public void delUser(@PathVariable User u){
 		service.deleteUser(u);
-	}
-	
-	@RequestMapping (value="/{userID}", method= RequestMethod.GET)
-	public User getUser(@PathVariable Long userID){
-		return service.getUser(userID);
 	}
 	
 	@RequestMapping(value="/hello", method=RequestMethod.GET)

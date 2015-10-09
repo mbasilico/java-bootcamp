@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import shoppingcart.model.Item;
 import shoppingcart.model.PaymentStrategy;
+import shoppingcart.model.ShoppingCart;
 import shoppingcart.services.ShoppingCartService;
 
 @RestController
@@ -28,12 +29,12 @@ public class ShoppingCartController {
 	}
 
 	@RequestMapping(value = "/{idcart}/item", method = RequestMethod.POST)
-	public void addItemToCart(@PathVariable int idcart, Item i) {
+	public void addItemToCart(@PathVariable ShoppingCart idcart, Item i) {
 		service.addItemToCart(idcart, i);
 	}
 
 	@RequestMapping(value = "/{idcart}/item/{iditem}", method = RequestMethod.DELETE)
-	public void delItemInCart(@PathVariable int idcart, @PathVariable int iditem) {
+	public void delItemInCart(@PathVariable ShoppingCart idcart, @PathVariable int iditem) {
 		service.removeItemInCart(idcart, iditem);
 	}
 

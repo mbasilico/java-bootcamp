@@ -14,46 +14,42 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "userID", nullable = false)
-	private Long userID;
+	@Column(name = "id", nullable = false)
+	private Long id;
 	
-	@Column(name = "userName", nullable = false)
-	private String userName;
+	@Column(name = "name", nullable = false)
+	private String name;
 	
-	@Column(name = "password", nullable = false)
-	private String password;
+	@Column(name = "pass", nullable = false)
+	private String pass;
 
 	
 	public User() {
 	}
 	
 	public User(String user, String password) {
-		this.userName = user;
-		this.password = password;
+		this.name = user;
+		this.pass = password;
 	}
 
 	public String getUserName() {
-		return userName;
+		return name;
 	}
 
 	public void setUser(String user) {
-		this.userName = user;
+		this.name = user;
 	}
 
 	public String getPassword() {
-		return password;
+		return pass;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.pass = password;
 	}
 
 	public Long getUserID() {
-		return userID;
-	}
-
-	public void setUserID(Long userID) {
-		this.userID = userID;
+		return id;
 	}
 
 }
