@@ -38,17 +38,16 @@ public class UserService {
 		return (ArrayList<User>) userDao.findAll();
 	}
 
-	public String deleteUser(User u) {
-		if (((List<User>) userDao.findAll()).contains(u)){
-			userDao.delete(u);
+	public String deleteUser(Long id) {
+		User u= new User();
+		u=userDao.findOne(id);
+		userDao.delete(id);
 			return "User "+u.toString()+ " deleted succefully";
-		}else
-			return "User not in DB please login or register";
 	}
 
 	public User getUser(Long id) {
 		return userDao.findOne(id);
-		
 	}
+
 	
 }
