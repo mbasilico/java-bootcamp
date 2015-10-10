@@ -5,10 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Entity
@@ -24,8 +21,8 @@ public class Item  {
 	@Column(name = "name", unique = true, nullable = false)
 	private String name;
 	
-	@Column(name = "desc")
-	private String desc;
+	@Column(name = "description")
+	private String description;
 	
 	@Column(name = "price")
 	private double price;
@@ -33,22 +30,19 @@ public class Item  {
 	@Column(name = "category")
 	private String category;
 	
-	private Item(){
+
+	public Item() {
 		
 	}
-	public Item(String name, String desc, double price, String category) {
+	public Item(String name, String description, String category, double price) {
 		this.setName(name);
-		this.setDescription(desc);
+		this.setDescription(description);
 		this.setPrice(price);
 		this.setCategory(category);
 	}
 
 	public long getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -60,19 +54,19 @@ public class Item  {
 	}
 
 	public String getDescription() {
-		return desc;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		this.desc = description;
+		this.description = description;
 	}
 
 	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price2) {
-		this.price = price2;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public String getCategory() {

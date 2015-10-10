@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -23,7 +24,7 @@ public class ShoppingCart {
 	
 	@Autowired
 	@OneToMany
-	public List<Item> cartItems = new ArrayList<Item>();
+	private List<Item> cartItems = new ArrayList<Item>();
 
 
 	public ShoppingCart (){

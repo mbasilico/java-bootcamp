@@ -1,13 +1,14 @@
 package shoppingcart.controllers;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import shoppingcart.model.Item;
@@ -23,7 +24,8 @@ public class ItemsController {
 	ItemsService service;
 	
 	@RequestMapping(value="/item",method = RequestMethod.POST)
-	public void addItem(Item i) {
+	public void addItem(@RequestParam String category, @RequestParam String description , @RequestParam String name, @RequestParam double price ) {
+		Item i = new Item(name,description,category,price);
 		service.addItem(i);
 	}
 	
@@ -33,32 +35,27 @@ public class ItemsController {
 	}
 
 	@RequestMapping(value="/item/{itemID}", method=RequestMethod.GET)
-	public Item getItem(@PathVariable int itemID) {
+	public Item getItem(@PathVariable Long itemID) {
 		return service.getItem(itemID);
 	}
 	
+	@RequestMapping(value="/item/namesearch/{name}", method=RequestMethod.GET)
+	public ArrayList<Item> getItemBtName(@PathVariable String name) {
+		return service.getItemByName(name);
+	}
+	
 	@RequestMapping(value="/item/{itemID}", method=RequestMethod.DELETE)
-	public void delItem(@PathVariable int itemID) {
+	public void delItem(@PathVariable Long itemID) {
 		service.removeItem(itemID);
 	}
 	
-	@RequestMapping(value="item/{itemID}", method=RequestMethod.PUT)
-	public void modItem(@PathVariable int itemID, @RequestBody Item i) {
-		service.modifyItem(itemID, i);
+	@RequestMapping(value="/category/{category}/", method=RequestMethod.GET)
+	public ArrayList<Item> getItemsInCat(@PathVariable String category) {
+		return service.getItemsInCat(category);
 	}
-	
-	@RequestMapping(value="/category/{categoryID}/", method=RequestMethod.GET)
-	public ArrayList<Item> getItemsInCat(@PathVariable int categoryID) {
-		return service.getItemsInCat(categoryID);
-	}
-	
-	@RequestMapping(value="/category/{categoryID}", method=RequestMethod.DELETE)
-	public void delItemsInCat(@PathVariable int categoryID, @RequestBody Item i) {
-		service.delItemsFromCat(i);
-	}
-	
-	@RequestMapping(value="/category", method=RequestMethod.GET)
-	public ArrayList<Item> getCats() {
+		
+	@RequestMapping(value="/categories", method=RequestMethod.GET)
+	public Set<String> getCats() {
 		return service.getCats();
 	}
 	
