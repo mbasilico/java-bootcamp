@@ -26,8 +26,8 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping(value="/login",method = RequestMethod.GET,headers="Accept=application/json")
-	public String userLogin(){
+	@RequestMapping(value="/login",method = RequestMethod.GET,headers="Accept=application/json") 
+	public String userLogin(){ // login using Spring security framework
 		return "Logged in";
 	}
 	
@@ -44,7 +44,7 @@ public class LoginController {
 	
 	
 	@RequestMapping(value="/logUser/{username},{password}",method = RequestMethod.GET,headers="Accept=application/json", produces={"application/json"})
-	public String logUser(@PathVariable String username,@PathVariable String password){
+	public String logUser(@PathVariable String username,@PathVariable String password){ // login without Spring security framework 
 		
 		if(!uService.getUserLogin(username, password))
 			return "Login Succesfully";
