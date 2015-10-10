@@ -2,8 +2,6 @@ package com.shopping.cart.main;
 import java.util.List;
 
 
-
-
 public class CardDiscount extends Discount{
 	
 	private long cardNumber;

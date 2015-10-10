@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,11 +25,10 @@ public class ProductController {
 		return uService.getProductList();
 	}
 	
-	@RequestMapping(value = "/add/{name},{price}", method = RequestMethod.GET,headers="Accept=application/json")
-	public ModelAndView addProduct(@PathVariable String name,@PathVariable double price){
-		Product product=new Product(name,price);
+	@RequestMapping(value = "/add", method = RequestMethod.POST,headers="Accept=application/json", produces={"application/json"})
+	public @ResponseBody Product addProduct(@RequestBody Product product){
 		uService.addProduct(product);
-		return new ModelAndView("redirect:/product");
+		return product;
 	}
 
 	@RequestMapping(value="/delete/{productId}")

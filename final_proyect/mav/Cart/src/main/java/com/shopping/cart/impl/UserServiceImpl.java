@@ -74,9 +74,6 @@ public class UserServiceImpl implements UserService{
 	}
 
 	
-	
-
-	
 	@Transactional
 	public void addTr(Transaction transaction) {
 		trDao.addTr(transaction);
@@ -96,12 +93,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 
-	@Transactional
-	public void addUser(User user) {
-		userDao.addUser(user);
-		
-	}
-
+	
 
 	@Transactional
 	public boolean getUserLogin(String username, String password) {
@@ -132,6 +124,13 @@ public class UserServiceImpl implements UserService{
 		
 		
 		return productDao.searchName(name);
+	}
+
+
+	@Transactional
+	public void newUser(User user) {
+		userDao.newUser(user);
+		
 	}
 
 }
