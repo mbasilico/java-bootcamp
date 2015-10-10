@@ -29,14 +29,14 @@ public class ProductServiceImp {
 		productDAOImp.closeCurrentSessionwithTransaction();
 	}
 
-	public Product findById(String id) {
+	public Product findById(Long id) {
 		productDAOImp.openCurrentSession();
 		Product product = productDAOImp.findById(id);
 		productDAOImp.closeCurrentSession();
 		return product;
 	}
 
-	public void delete(String id) {
+	public void delete(Long id) {
 		productDAOImp.openCurrentSessionwithTransaction();
 		Product product = productDAOImp.findById(id);
 		productDAOImp.delete(product);

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,18 +17,27 @@ import shoppingcart.service.ProductServiceImp;
 
 @RestController
 @RequestMapping("/product")
+@EnableAutoConfiguration
 public class ProductController {
 	
 	@Autowired
-	ProductServiceImp productServiceImp;
+	ProductServiceImp productServiceImp;	
 	
+	public ProductController() {
+	}
+	
+	static {
+		System.out.println("Inici� ProductController");
+	}
+	
+	// for testing porpose only
 	@RequestMapping("/")
     public String index() {
         return "Product Controller - Greetings from Spring Boot!";
     }
 	
-	@RequestMapping(value="/getProductByID", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Product getProductByID(String id){
+	@RequestMapping(value="/getProductByID/{productID}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Product getProductByID(@RequestParam Long id){
 		try {
 			Product product;
 			product = productServiceImp.findById(id);
@@ -39,7 +49,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/getProductByName", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Product getProductByName(String name){
+	public @ResponseBody Product getProductByName(@RequestParam String name){
 		try {
 			Product product;
 			product = productServiceImp.findByName(name);

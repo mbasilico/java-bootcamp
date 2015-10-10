@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "catalogue")
 public class Product {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "productID", nullable = false)
@@ -36,14 +36,14 @@ public class Product {
 	private String description;
 
 	@Column(name = "catalogueType", nullable = false)
-	private String catalogueType;	
-	
+	private String catalogueType;
+
 	@ManyToOne
-	@JoinColumn(name="cartID")
+	@JoinColumn(name = "cartID")
 	private Cart cart;
 
 	public Product() {
-	}	
+	}
 
 	public Product(Long productID, String productName, BigDecimal price, int stock, String description,
 			String catalogueType) {
@@ -101,6 +101,12 @@ public class Product {
 
 	public void setCatalogueType(String catalogueType) {
 		this.catalogueType = catalogueType;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [productID=" + productID + ", productName=" + productName + ", price=" + price + ", stock="
+				+ stock + ", description=" + description + ", catalogueType=" + catalogueType + ", cart=" + cart + "]";
 	}
 
 }

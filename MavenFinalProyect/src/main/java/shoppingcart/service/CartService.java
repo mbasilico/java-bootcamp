@@ -1,11 +1,10 @@
 package shoppingcart.service;
 
-import java.util.List;
-
 import shoppingcart.model.Cart;
+import shoppingcart.model.Product;
 
 public interface CartService {
-	
+
 	public void persist(Cart entity);
 
 	public void update(Cart entity);
@@ -13,9 +12,9 @@ public interface CartService {
 	public Cart findById(Long id);
 
 	public void delete(Long id);
-	
-	public List<Cart> findAll();
-	
-	public void deleteAll();
+
+	public Product cheapestProduct(Long id);
+
+	public Product expensiveProduct(Long id);
 
 }

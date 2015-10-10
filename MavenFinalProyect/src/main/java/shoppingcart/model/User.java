@@ -30,6 +30,13 @@ public class User {
 	
 	public User() {		
 	}
+	
+	public User(String userName, String userPassword, String userShippingAdress) {		
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.userShippingAdress = userShippingAdress;
+	}
+
 
 	public Long getUserID() {
 		return userID;
@@ -62,4 +69,10 @@ public class User {
 	public void setUserShippingAdress(String userShippingAdress) {
 		this.userShippingAdress = userShippingAdress;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userID=" + userID + ", userName=" + userName + ", userShippingAdress=" + userShippingAdress + "]";
+	}
+	
 }

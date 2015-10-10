@@ -2,6 +2,8 @@ package shoppingcart.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,13 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import shoppingcart.model.User;
-import shoppingcart.service.UserService;
+import shoppingcart.service.UserServiceImp;
 
 @RestController
 @RequestMapping("/user")
+@EnableAutoConfiguration
 public class UserController {
 
-	UserService userService;
+	@Autowired
+	UserServiceImp userServiceImp;
 
 	@RequestMapping(value = "/newUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public boolean newUser(@RequestParam String userName, @RequestParam String userPassword,
@@ -24,20 +28,18 @@ public class UserController {
 		user.setUserName(userName);
 		user.setUserPassword(userPassword);
 		user.setUserShippingAdress(userShippingAdress);
-		return userService.addNewUser(user);
+		return userServiceImp.addNewUser(user);
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public boolean login(String userName, String userPassword) {
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public boolean login(@RequestParam String userName,@RequestParam String userPassword) {
 		User user = new User();
 		user.setUserName(userName);
-		user.setUserPassword(userPassword);
-		userService.loginGetUser(userName, userPassword);
-
-		return false;
+		user.setUserPassword(userPassword);			
+		return userServiceImp.loginGetUser(userName, userPassword);	
 	}
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@RequestMapping(value = "/hello", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public String helloTest() {
 		return "hello";
 	}
@@ -45,7 +47,7 @@ public class UserController {
 	@RequestMapping(value = "/getUsers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<User> getUsers() {
 		try {
-			return userService.requestUsers();
+			return userServiceImp.requestUsers();
 		} catch (Exception e) {
 			System.out.println("there're no users. " + e);
 		}

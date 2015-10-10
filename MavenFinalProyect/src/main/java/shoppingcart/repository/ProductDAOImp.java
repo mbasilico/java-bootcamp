@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import shoppingcart.model.Product;
 
 @Repository
-public class ProductDAOImp implements ProductDAO<Product, String> {
+public class ProductDAOImp implements ProductDAO {
 	
 	static {
 		System.out.println("Inició ProductDAOImp");
@@ -77,7 +77,7 @@ public class ProductDAOImp implements ProductDAO<Product, String> {
 		getCurrentSession().update(entity);
 	}
 
-	public Product findById(String id) {
+	public Product findById(Long id) {
 		Product product = (Product) getCurrentSession().get(Product.class, id);
 		return product;
 	}

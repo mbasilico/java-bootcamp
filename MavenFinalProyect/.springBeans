@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[3.7.0.201506251244-RELEASE]]></pluginVersion>
+	<pluginVersion><![CDATA[3.7.1.201510041102-RELEASE]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/beansCfg.xml</config>
-		<config>java:shopingcart.MainApp</config>
 	</configs>
 	<autoconfigs>
-		<config>java:security.WebSecurityConfig</config>
-		<config>java:config.MvcConfig</config>
-		<config>java:config.ApplicationContextConfig</config>
+		<config>java:shoppingcart.MainApp</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

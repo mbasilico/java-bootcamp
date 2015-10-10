@@ -6,21 +6,22 @@ import java.util.List;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shoppingcart.model.User;
 import shoppingcart.repository.UserDAOImp;
 
 @Service
-public class UserService {
+public class UserServiceImp {
 
+	@Autowired
 	UserDAOImp userDAOImp;
 
 	@OneToMany(mappedBy = "userName", fetch = FetchType.LAZY)
 	private List<User> userList = new ArrayList<User>();
 
 	public List<User> requestUsers() {
-//		userDAOImp.
 		return userDAOImp.userList();
 	}
 	
@@ -41,12 +42,15 @@ public class UserService {
 		return false;
 	}
 	
-	public User loginGetUser(String userName, String userPassword){
+	public boolean loginGetUser(String userName, String userPassword){
 		User user = new User();
-		
-		// find out how to do it
-		user.setUserName(userName);
-		return user;
+		user = userDAOImp.findByName(userName);
+		if (user.getUserPassword() == userPassword){
+			return true;
+		}
+		return false;
 	}
+	
+	
 
 }

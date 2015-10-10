@@ -13,5 +13,7 @@ public interface UserDAO {
     public void saveOrUpdateUser(User user);
      
     public void deleteUser(Long id);
+    
+    public User findByName(String name);
 
 }

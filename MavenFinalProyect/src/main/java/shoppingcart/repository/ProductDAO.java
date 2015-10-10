@@ -4,17 +4,17 @@ import java.util.List;
 
 import shoppingcart.model.Product;
 
-public interface ProductDAO<T, Id> {
+public interface ProductDAO {
 
-	public void persist(T product);
+	public void persist(Product product);
 
-	public void update(T product);
+	public void update(Product product);
 
-	public T findById(Id id);
+	public Product findById(Long id);
 
-	public void delete(T product);
+	public void delete(Product product);
 
-	public List<T> findAll();
+	public List<Product> findAll();
 
 	public void deleteAll();
 	

@@ -1,76 +1,44 @@
-package shoppingcart.repository;
-
-import org.yaml.snakeyaml.events.Event.ID;
-
-import shoppingcart.model.Cart;
-
-public class CartDAOImp implements CartRepository {
-	
-	
-
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public void delete(Long arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void delete(Cart arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void delete(Iterable<? extends Cart> arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public boolean exists(Long arg0) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public Iterable<Cart> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Iterable<Cart> findAll(Iterable<Long> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Cart findOne(Long arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public <S extends Cart> S save(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public <S extends Cart> Iterable<S> save(Iterable<S> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void persist(Cart entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public Cart findOne(ID id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-}
+//package shoppingcart.repository;
+//
+//import javax.persistence.EntityManager;
+//import javax.persistence.PersistenceContext;
+//
+//import org.hibernate.Session;
+//import org.springframework.stereotype.Repository;
+//import shoppingcart.model.Cart;
+//
+//@Repository
+//public class CartDAOImp implements CartDAO {
+//	
+//	static {
+//		System.out.println("Inici� CartDAO");
+//	}		
+//	
+//	@PersistenceContext
+//	EntityManager entityManager;
+//	
+//	Session session = entityManager.unwrap(Session.class);
+//
+//	public CartDAOImp() {
+//	}
+//
+//	public void persist(Cart entity) {
+//		// using just entityManager you can do
+//		// entityManager.persist(entity);
+//		session.getSessionFactory().getCurrentSession().persist(entity);		
+//	}
+//
+//	public void update(Cart entity) {
+//		session.getSessionFactory().getCurrentSession().update(entity);
+//		
+//	}
+//
+//	public void delete(Cart entity) {
+//		session.getSessionFactory().getCurrentSession().delete(entity);		
+//	}
+//	
+//	public Cart findById(Long id) {		
+//		return session.getSessionFactory().getCurrentSession().get(Cart.class, id);
+//	}
+//
+//}

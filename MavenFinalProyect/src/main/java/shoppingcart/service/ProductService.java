@@ -10,9 +10,9 @@ public interface ProductService {
 
 	public void update(Product entity);
 
-	public Product findById(String id);
+	public Product findById(Long id);
 
-	public void delete(String id);
+	public void delete(Long id);
 	
 	public List<Product> findAll();
 	
