@@ -24,9 +24,10 @@ public class ItemsController {
 	ItemsService service;
 	
 	@RequestMapping(value="/item",method = RequestMethod.POST)
-	public void addItem(@RequestParam String category, @RequestParam String description , @RequestParam String name, @RequestParam double price ) {
+	public ArrayList<Item> addItem(@RequestParam String category, @RequestParam String description , @RequestParam String name, @RequestParam double price ) {
 		Item i = new Item(name,description,category,price);
 		service.addItem(i);
+		return service.getItems();
 	}
 	
 	@RequestMapping(value="/item",method = RequestMethod.GET)
@@ -42,11 +43,13 @@ public class ItemsController {
 	@RequestMapping(value="/item/namesearch/{name}", method=RequestMethod.GET)
 	public ArrayList<Item> getItemBtName(@PathVariable String name) {
 		return service.getItemByName(name);
+		
 	}
 	
 	@RequestMapping(value="/item/{itemID}", method=RequestMethod.DELETE)
-	public void delItem(@PathVariable Long itemID) {
+	public ArrayList<Item> delItem(@PathVariable Long itemID) {
 		service.removeItem(itemID);
+		return service.getItems();
 	}
 	
 	@RequestMapping(value="/category/{category}/", method=RequestMethod.GET)

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import shoppingcart.model.User;
 import shoppingcart.services.UserService;
 
@@ -26,18 +26,18 @@ public class UserController {
 	UserService service;
 	
 	@RequestMapping (value="/register", method= RequestMethod.POST)
-	public void regUser(@RequestParam String name, @RequestParam String pass){
-		service.registerUser(name,pass);
+	public @ResponseBody String regUser(@RequestParam String name, @RequestParam String pass){
+		return service.registerUser(name,pass);
 	}
 	
 	@RequestMapping (value="/login", method= RequestMethod.POST)
-	public void logUser(@RequestParam String name, @RequestParam String pass){
-		service.loginUser(name,pass);
+	public @ResponseBody String logUser(@RequestParam String name, @RequestParam String pass){
+		return service.loginUser(name,pass);
 	}
 	
 	@RequestMapping (value="{id}/logout", method= RequestMethod.POST)
-	public void logOutUser(@PathVariable Long id){
-		service.logoutUser(id);
+	public @ResponseBody String logOutUser(@PathVariable Long id){
+		return service.logoutUser(id);
 	}
 	
 	@RequestMapping (value="/", method= RequestMethod.GET)
@@ -52,8 +52,8 @@ public class UserController {
 	}
 	
 	@RequestMapping (value="/{id}", method= RequestMethod.DELETE)
-	public void delUser(@PathVariable Long id){
-		service.deleteUser(id);
+	public @ResponseBody String delUser(@PathVariable Long id){
+		return service.deleteUser(id);
 	}
 
 }

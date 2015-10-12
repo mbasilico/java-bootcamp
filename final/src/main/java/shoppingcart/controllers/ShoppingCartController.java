@@ -26,19 +26,19 @@ public class ShoppingCartController {
 
 	@Autowired
 	ShoppingCartService service;
-	
+
 	@RequestMapping(value = "/new", method = RequestMethod.POST)
 	public void newCart() {
 		service.newCart();
 	}
-	
+
 	@RequestMapping(value = "/{idcart}", method = RequestMethod.GET)
 	public List<Item> getItemsInCart(@PathVariable Long idcart) {
 		return service.getCart(idcart);
 	}
 
 	@RequestMapping(value = "/{idcart}/item/{itemID}", method = RequestMethod.POST)
-	public void addItemToCart(@PathVariable Long idcart,@PathVariable Long itemID) {
+	public void addItemToCart(@PathVariable Long idcart, @PathVariable Long itemID) {
 		service.addItemToCart(idcart, itemID);
 	}
 
@@ -48,28 +48,24 @@ public class ShoppingCartController {
 	}
 
 	@RequestMapping(value = "/{idcart}/pay", method = RequestMethod.POST)
-	public @ResponseBody Double paycart(@PathVariable Long idcart, @RequestParam String pay,@RequestParam String user,@RequestParam String pass,@RequestParam String ccName,@RequestParam int number) {
+	public @ResponseBody Double paycart(@PathVariable Long idcart, @RequestParam String pay, @RequestParam String user,
+			@RequestParam String pass, @RequestParam String ccName, @RequestParam int number) {
 		double d = 0;
-		if (pay.equals("cash")){
+		if (pay.equals("cash")) {
 			d = service.payCart(idcart, new CashPayment());
 		}
-		if (pay.equals("paypal")){
-			d = service.payCart(idcart, new PayPalPayment(user,pass));
-		} 
-		if (pay.equals("credit")){
-			d = service.payCart(idcart, new CreditCardPayment(ccName,number));
+		if (pay.equals("paypal")) {
+			d = service.payCart(idcart, new PayPalPayment(user, pass));
 		}
-		return d;  
+		if (pay.equals("credit")) {
+			d = service.payCart(idcart, new CreditCardPayment(ccName, number));
+		}
+		return d;
 	}
 
 	@RequestMapping(value = "/{idcart}", method = RequestMethod.DELETE)
 	public ArrayList<Item> delCart(@PathVariable Long idcart) {
 		return service.deleteCart(idcart);
-	}
-	
-	@RequestMapping(value="/hello", method=RequestMethod.GET)
-    public String index() {
-        return "Cart Controller - Greetings from Spring Boot!";
 	}
 
 }
