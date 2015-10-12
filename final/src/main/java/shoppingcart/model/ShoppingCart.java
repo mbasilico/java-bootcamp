@@ -3,6 +3,7 @@ package shoppingcart.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+
 @Entity
 @Table(name = "shoppingcart")
 public class ShoppingCart {
@@ -20,10 +22,10 @@ public class ShoppingCart {
 	@Id
 	@GeneratedValue
 	@Column(name = "id", nullable = false)
-	private long id;
+	private Long id;
 	
 	@Autowired
-	@OneToMany
+	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Item> cartItems = new ArrayList<Item>();
 
 
@@ -38,8 +40,12 @@ public class ShoppingCart {
 		this.cartItems = cart;
 	}
 
-	public long getCartID() {
+	public Long getCartID() {
 		return id;
+	}
+	
+	public double pay(PaymentStrategy paymentMethod){
+		return paymentMethod.makePayment(this.getCart());
 	}
 
 

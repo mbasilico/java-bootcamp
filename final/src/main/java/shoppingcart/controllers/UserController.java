@@ -27,14 +27,17 @@ public class UserController {
 	
 	@RequestMapping (value="/register", method= RequestMethod.POST)
 	public void regUser(@RequestParam String name, @RequestParam String pass){
-		User u = new User(name,pass);
-		service.registerUser(u);
+		service.registerUser(name,pass);
 	}
 	
 	@RequestMapping (value="/login", method= RequestMethod.POST)
 	public void logUser(@RequestParam String name, @RequestParam String pass){
-		User u = new User(name,pass);
-		service.loginUser(u);
+		service.loginUser(name,pass);
+	}
+	
+	@RequestMapping (value="{id}/logout", method= RequestMethod.POST)
+	public void logOutUser(@PathVariable Long id){
+		service.logoutUser(id);
 	}
 	
 	@RequestMapping (value="/", method= RequestMethod.GET)
@@ -52,10 +55,5 @@ public class UserController {
 	public void delUser(@PathVariable Long id){
 		service.deleteUser(id);
 	}
-	
-	@RequestMapping(value="/hello", method=RequestMethod.GET)
-    public String index() {
-        return "User Controller - Greetings from Spring Boot!";
-	}
-	
+
 }

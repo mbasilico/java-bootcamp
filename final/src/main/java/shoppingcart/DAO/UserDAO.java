@@ -11,6 +11,7 @@ import shoppingcart.model.User;
 
 	@Transactional
 	public interface UserDAO extends CrudRepository<User, Long> {
-
+	
+		User findByNameAndPass(String name,String pass);
+		
 	}
-

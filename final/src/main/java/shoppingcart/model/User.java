@@ -22,8 +22,8 @@ public class User {
 	
 	@Column(name = "pass", nullable = false)
 	private String pass;
-
 	
+
 	public User() {
 	}
 	

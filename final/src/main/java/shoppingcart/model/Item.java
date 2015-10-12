@@ -12,13 +12,12 @@ import javax.persistence.Table;
 @Table(name="item")
 public class Item  {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
-	private long id;
+	private Long id;
 	
-	@Column(name = "name", unique = true, nullable = false)
+	@Column(name = "name")
 	private String name;
 	
 	@Column(name = "description")
@@ -30,7 +29,7 @@ public class Item  {
 	@Column(name = "category")
 	private String category;
 	
-
+	
 	public Item() {
 		
 	}
@@ -41,7 +40,7 @@ public class Item  {
 		this.setCategory(category);
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

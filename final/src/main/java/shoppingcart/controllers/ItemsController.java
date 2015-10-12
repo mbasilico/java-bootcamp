@@ -58,9 +58,5 @@ public class ItemsController {
 	public Set<String> getCats() {
 		return service.getCats();
 	}
-	
-	@RequestMapping(value="/hello", method=RequestMethod.GET)
-    public String index() {
-        return "Item Controller - Greetings from Spring Boot!";
-	}
+
 }
