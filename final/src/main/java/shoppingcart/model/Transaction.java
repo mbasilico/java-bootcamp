@@ -3,14 +3,38 @@ package shoppingcart.model;
 import java.util.Date;
 import java.util.List;
 
-public class Transaction {
-	private Date date;
-	private List<Item> items;
-	private float amount;
-	
-	private long transactionID;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-	public Transaction(float amount, List<Item> items) {
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+@Entity
+@Table(name="transaction")
+public class Transaction {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", nullable = false)
+	private long transactionID;
+	
+	@Column(name = "date")
+	private Date date;
+	
+	@Column(name = "amount")
+	private double amount;
+	
+	@Autowired
+	@OneToMany(cascade = CascadeType.PERSIST)
+	private List<Item> items;
+	
+	public Transaction(double amount, List<Item> items) {
 		this.date = new Date();
 		this.items = items;
 		this.amount = amount;
@@ -32,11 +56,11 @@ public class Transaction {
 		this.items = items;
 	}
 
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(float amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 

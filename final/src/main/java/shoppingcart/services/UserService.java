@@ -57,7 +57,6 @@ public class UserService {
 		} else {
 			return "User loged out";
 		}
-
 	}
 
 	private boolean userExists(String name, String pass) {
